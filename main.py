@@ -4,8 +4,10 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset
 import torch.nn.functional as F
-
+from torchvision import transforms
 import os
+from PIL import Image
+
 """
 Deep learning uses artificial neural networks(models), which
 are computing systems that are composed of many layers of 
@@ -14,8 +16,13 @@ units, a neural network is able to learn how to approximate the
 computations required to transform inputs into outputs
 """
 
+MAIN_DIR = "RiceImages"
+
 
 class RiceImagesDataset(Dataset):
+    def __getitem__(self, index):
+        pass
+
     def __init__(self) -> None:
         pass
 
@@ -32,8 +39,8 @@ class Net(nn.Module):
     extract certain features (like edge detection, sharpness. blurriness)
     """
 
-    def __init__(self) -> None:
-        super(Net, self).__init__()
+    def __init__(self, input_shape: int, hidden_units: int, output_shape: int) -> None:
+        super().__init__()
 
         """
         (conv1): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1))
@@ -42,7 +49,13 @@ class Net(nn.Module):
 
         # first 2D convolutional layers, taking in 1 input channel (image)
         # outputting 32 convolutional features, with a square kernel size of 3
-        self.conv1 = nn.Conv2d(1, 32, 3, 1)
+        self.conv1 = nn.Conv2d(
+            1, 
+            32, 
+            3, # how big is the square that's over going over  the image?
+            1 # take a step, one pixel at time that's it, the step to cycle through the pixels
+            )
+
         # Second 2D convolutional layer, taking in the 32 input layers
         # outputting 64 convolutional features, with a square kernel size of 3
         self.conv2 = nn.Conv2d(32, 64, 3, 1)
@@ -62,7 +75,7 @@ class Net(nn.Module):
         # how our data will pass through it
 
     # x represents our data
-    def forward(self, x) -> torch.Tensor:
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         # Pass data through conv1
         x = self.conv1(x)
         # we use the rectified-linear activation function over x
@@ -96,10 +109,15 @@ def main():
         # print(my_nn)
         # print(my_nn.forward(10))
 
-        MAIN_DIR = "RiceImages"
-        
-        for x in os.join(main_dir):
-            print(x)
+        list_files = [x for x in os.listdir(MAIN_DIR)]
+
+        for x in list_files:
+            tensor = transforms.ToTensor()
+            tensor = tensor(Image.open(os.path.join(MAIN_DIR, x)))
+            print(tensor)
+            print(tensor.shape)
+            break
+
     except Exception as e:
         print(str(e))
 
