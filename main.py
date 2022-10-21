@@ -50,11 +50,11 @@ class Net(nn.Module):
         # first 2D convolutional layers, taking in 1 input channel (image)
         # outputting 32 convolutional features, with a square kernel size of 3
         self.conv1 = nn.Conv2d(
-            1, 
-            32, 
-            3, # how big is the square that's over going over  the image?
-            1 # take a step, one pixel at time that's it, the step to cycle through the pixels
-            )
+            1,
+            32,
+            3,  # how big is the square that's over going over  the image?
+            1  # take a step, one pixel at time that's it, the step to cycle through the pixels
+        )
 
         # Second 2D convolutional layer, taking in the 32 input layers
         # outputting 64 convolutional features, with a square kernel size of 3
