@@ -1,7 +1,11 @@
+#!/usr/bin/env python
+
 import torch
 import torch.nn as nn
+from torch.utils.data import Dataset
 import torch.nn.functional as F
 
+import os
 """
 Deep learning uses artificial neural networks(models), which
 are computing systems that are composed of many layers of 
@@ -9,6 +13,15 @@ interconnected units. By passing data through these interconnected
 units, a neural network is able to learn how to approximate the 
 computations required to transform inputs into outputs
 """
+
+
+class RiceImagesDataset(Dataset):
+    def __init__(self) -> None:
+        pass
+
+
+class Training:
+    pass
 
 
 class Net(nn.Module):
@@ -19,7 +32,7 @@ class Net(nn.Module):
     extract certain features (like edge detection, sharpness. blurriness)
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         super(Net, self).__init__()
 
         """
@@ -49,7 +62,7 @@ class Net(nn.Module):
         # how our data will pass through it
 
     # x represents our data
-    def forward(self, x):
+    def forward(self, x) -> torch.Tensor:
         # Pass data through conv1
         x = self.conv1(x)
         # we use the rectified-linear activation function over x
@@ -73,13 +86,20 @@ class Net(nn.Module):
         x = self.fc2(x)
         # After that applying softmax
         output = F.log_softmax(x, dim=1)
+        print(type(output))
         return output
 
 
 def main():
     try:
-        my_nn = Net()
-        print(my_nn)
+        # my_nn = Net()
+        # print(my_nn)
+        # print(my_nn.forward(10))
+
+        MAIN_DIR = "RiceImages"
+        
+        for x in os.join(main_dir):
+            print(x)
     except Exception as e:
         print(str(e))
 
