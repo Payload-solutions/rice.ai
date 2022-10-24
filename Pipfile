@@ -8,6 +8,9 @@ torch = "*"
 torchvision = "*"
 torchaudio = "*"
 pillow = "*"
+scikit-learn = "*"
+scikit-image = "*"
+pwntools = "*"
 
 [dev-packages]
 
