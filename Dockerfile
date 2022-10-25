@@ -2,7 +2,7 @@ FROM golang:1.19.2
 
 RUN mkdir /app
 
-WORKDIR $GOPATH/src/github.com/Arturo0911/measurements-realtime
+WORKDIR $GOPATH/src/github.com/Payload-solutions/rice.ai
 
 COPY . .
 

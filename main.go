@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	. "github.com/Payload-solutions/rice.ai/server"
+)
 
 func main() {
-	fmt.Println("hello")
+	NewServer()
 }
