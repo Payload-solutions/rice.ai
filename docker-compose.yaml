@@ -2,18 +2,18 @@ version: '3.7'
 services:
   conv-server:
     build: ./cnn-server
-    networks:
-      - default
-  client:
-    build: ./cnn-client
-    depends_on:
-      - "conv-server"
-    networks:
-      - default
+    network_mode: "host"
+  # client:
+  #   build: ./cnn-client
+  #   depends_on:
+  #     - "conv-server"
+  #   networks:
+  #     - default
   gateway:
     build: .
     depends_on:
       - "conv-server"
+    network_mode: "host"
 
 networks:
   default:

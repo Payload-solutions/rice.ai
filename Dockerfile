@@ -18,4 +18,4 @@ EXPOSE 8000
 
 # ENTRYPOINT measurements-realtime --build="go build main.go" --command=./main
 
-CMD ["measurements-realtime"]
+CMD ["rice.ai"]
