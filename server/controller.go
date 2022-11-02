@@ -13,13 +13,8 @@ type JsonResponseBody struct {
 }
 
 type CNNResponse struct {
-	JSONResponse `json:"jsonresponse"`
-	// Ping         string `json:"ping"`
-	// Value        string `json:"value"`
-	Content string `json:"content"`
-
-	//IdConvolution int64 `json:"id_convolution"`
-	//IdConvolution int64 `json:"id_convolution"`
+	JSONResponse JSONResponse `json:"jsonresponse"`
+	Content      Result       `json:"flaskresponsetest"`
 }
 
 func CNNHandler(c *gin.Context) {

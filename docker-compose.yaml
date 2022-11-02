@@ -3,12 +3,11 @@ services:
   conv-server:
     build: ./cnn-server
     network_mode: "host"
-  # client:
-  #   build: ./cnn-client
-  #   depends_on:
-  #     - "conv-server"
-  #   networks:
-  #     - default
+  client:
+    build: ./cnn-client
+    depends_on:
+      - "conv-server"
+    network_mode: "host"
   gateway:
     build: .
     depends_on:

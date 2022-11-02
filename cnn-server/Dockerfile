@@ -8,7 +8,7 @@ ENV FLASK_APP app.py
 
 ENV FLASK_DEBUG=1
 
-ENV FLASK_ENV=development
+ENV FLASK_ENV=production
 
 ENV FLASK_RUN_HOST 0.0.0.0
 
