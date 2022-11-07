@@ -1,3 +1,62 @@
-<h1>hello motherfuckers</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Rice ai</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <ng-container>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="about" routerLinkActive="active">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/">Convolution</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="charts">Charts</a>
+                        </li>
+                    </ng-container>
+                    <!-- <ng-container *ngIf="!authService.isLoggedIn(); else loggedIn">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+                        </li>
+                    </ng-container>
+                    <ng-template #loggedIn>
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="authService.logOut()">Log out</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/profile" routerLinkActive="active">profile</a>
+                        </li>
+                    </ng-template> -->
 
-<h1>{{'dick '.repeat(5)}}</h1>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="containter p-5">
+    <router-outlet></router-outlet>
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Your Website 2020</span>
+            </div>
+        </div>
+    </footer>
+    <!-- End of Footer -->
+</div>
