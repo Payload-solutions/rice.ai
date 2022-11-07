@@ -8,6 +8,7 @@ Deep learning base website for the prediction to leave disease
 
 ### TODO:
 - [x] Make a simple chart for test
+- [x] Introduce some design in the front
 - [ ] Complite the http client consuming endpoints
 - [ ] Stablish a GRPC gateway with golang
 - [ ] Stablish the communication between the entire whole microservices
