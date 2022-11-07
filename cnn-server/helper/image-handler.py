@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+"""
+@author Arturo Negreiros
+"""
+
 
 import os
 from pprint import pprint
