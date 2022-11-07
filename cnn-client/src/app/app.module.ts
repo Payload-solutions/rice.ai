@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './components/about/about.component';
 import { ConvolutionComponent } from './components/convolution/convolution.component';
 import { ChartsComponent } from './components/charts/charts.component';
+import { LineComponent } from './components/line/line.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
     ConvolutionComponent,
-    ChartsComponent
+    ChartsComponent,
+    LineComponent
   ],
   imports: [
     BrowserModule,
