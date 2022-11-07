@@ -7,6 +7,8 @@ import { AboutComponent } from './components/about/about.component';
 import { ConvolutionComponent } from './components/convolution/convolution.component';
 import { ChartsComponent } from './components/charts/charts.component';
 import { LineComponent } from './components/line/line.component';
+import { MeasuresComponent } from './components/measures/measures.component';
+import { MainComponent } from './components/main/main.component';
 
 
 
@@ -16,7 +18,9 @@ import { LineComponent } from './components/line/line.component';
     AboutComponent,
     ConvolutionComponent,
     ChartsComponent,
-    LineComponent
+    LineComponent,
+    MeasuresComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
