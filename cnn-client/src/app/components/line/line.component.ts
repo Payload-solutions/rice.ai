@@ -25,9 +25,9 @@ export class LineComponent implements OnInit {
 
       data: {// values on X-Axis
         labels: [
-          'Red',
-          'Blue',
-          'Yellow'
+          'N',
+          'P',
+          'K'
         ],
         datasets: [{
           label: 'My First Dataset',

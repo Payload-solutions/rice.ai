@@ -17,8 +17,12 @@ const routes: Routes = [
     path: '',
     component:MainComponent
   },{
-    path: 'charts',
+    path: 'measurements',
     component: ChartsComponent
+  },
+  {
+    path: 'convolution',
+    component: ConvolutionComponent
   },
   {
     path:'about',
