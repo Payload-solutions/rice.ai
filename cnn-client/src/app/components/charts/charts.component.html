@@ -11,8 +11,8 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Convolution records</h1>
-            <p class="mb-4">In this area, you can find information about the training of the images for the convolution,
+            <h1 class="h3 mb-2 text-gray-800">Registros de los sensores</h1>
+            <p class="mb-4">En esta área encontrarás los valores de las medidas de los datos obtenidos de los sensores
             </p>
 
             <!-- Content Row -->
@@ -23,7 +23,7 @@
                     <!-- Area Chart -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Historic from the recolection</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Datos históricos de los sensores</h6>
                         </div>
                         <div class="card-body">
                             <!-- <div class="chart-area">
@@ -32,9 +32,8 @@
                             <div class="chart-container">
                                 <canvas id="MyChart">{{ chart }}</canvas>
                             </div>
-                            <hr>
-                            This chart show, all the information caught it from
-                            the previous training
+                            <!-- <hr>
+                            Este gráfico muestra los valores obtenidos por los -->
                         </div>
                     </div>
 
@@ -60,12 +59,12 @@
                     <div class="card shadow mb-4">
                     
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Presence nutrients</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Presencia de nutrientes</h6>
                         </div>
                         <div class="card-body">
                             <app-line></app-line>
                             <hr>
-                            Measurements about nutrients from the soil
+                            Niveles de elementos del suelo
                         </div>
                     </div>
                 </div>
