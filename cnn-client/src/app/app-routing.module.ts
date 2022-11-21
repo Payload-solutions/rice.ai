@@ -7,6 +7,8 @@ import { AboutComponent } from './components/about/about.component';
 import { ConvolutionComponent } from './components/convolution/convolution.component';
 import { ChartsComponent } from './components/charts/charts.component';
 import { MainComponent } from './components/main/main.component';
+import { LoginComponent } from './components/login/login.component';
+
 
 const routes: Routes = [
   /*{
@@ -27,7 +29,10 @@ const routes: Routes = [
   {
     path:'about',
     component: AboutComponent
-  },
+  },{
+    path: 'login',
+    component: LoginComponent
+  }
 ];
 
 @NgModule({

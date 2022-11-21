@@ -9,6 +9,7 @@ import { ChartsComponent } from './components/charts/charts.component';
 import { LineComponent } from './components/line/line.component';
 import { MeasuresComponent } from './components/measures/measures.component';
 import { MainComponent } from './components/main/main.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -20,7 +21,8 @@ import { MainComponent } from './components/main/main.component';
     ChartsComponent,
     LineComponent,
     MeasuresComponent,
-    MainComponent
+    MainComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
