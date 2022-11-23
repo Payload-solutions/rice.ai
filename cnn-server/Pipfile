@@ -7,6 +7,7 @@ name = "pypi"
 tensorflow = "*"
 django = "*"
 djangorestframework = "*"
+django-simple-history = "*"
 
 [dev-packages]
 
