@@ -1,8 +1,10 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework import status
 
-from apps.users.api.serializers import UserSerializer
+
+from apps.users.api.serializers import UserSerializer, UserListSerializer
 from apps.users.models import User
 
 
@@ -10,13 +12,42 @@ from apps.users.models import User
 def user_api_view(request):
     
     if request.method == "GET":
-        users = User.objects.all()
-        user_serializers = UserSerializer(users, many=True)
-        return Response(user_serializers.data)
+        users = User.objects.all().values('id', 'username', 'email', 'password')
+        user_serializers = UserListSerializer(users, many=True)
+        return Response(user_serializers.data, status=status.HTTP_200_OK)
     
     elif request.method == "POST":
         user_seializers = UserSerializer(data=request.data)
         if user_seializers.is_valid():
             user_seializers.save()
-            return Response(user_seializers.data)
-        return Response(user_seializers.errors)
+            return Response({"message":"user created successfully"}, status=status.HTTP_201_CREATED)
+
+        return Response(user_seializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(["GET", "PUT"])
+def user_detail_view(request, pk=None):
+
+    user = User.objects.filter(id=pk).first()
+    if user:
+
+        if request.method == "GET":
+            
+            user_seializer = UserSerializer(user)
+            return Response(user_seializer.data, status=status.HTTP_200_OK)
+
+        elif request.method == "PUT":
+            
+            user_seializer = UserSerializer(user, data=request.data)
+            if user_seializer.is_valid():
+                user_seializer.save()
+                return Response(user_seializer.data, status=status.HTTP_200_OK)
+
+            return Response(user_seializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        elif request.method == "DELETE":
+            
+            user.delete()
+            return Response({"message":"User delete it successfully"}, status=status.HTTP_200_OK)
+    
+    return Response({"message": "We can't found that user with these params"}, status=status.HTTP_400_BAD_REQUEST)
