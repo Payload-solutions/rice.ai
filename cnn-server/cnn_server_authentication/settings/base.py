@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-1g1v*-=6qknugnaho%q^!vpbhv6y&v1##&75v%r4%tj4_9@^z-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', ]
 
 
 # Application definition
@@ -108,11 +108,11 @@ USE_TZ = True
 
 AUTH_USER_MODEL  = 'users.User'
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost",
-    "http://localhost:4200",
-]
-
+# CORS_ALLOWED_ORIGINS = [
+#     # "http://localhost",
+#     # "http://localhost:4200",
+# ]
+CORS_ALLOW_ALL_ORIGINS=True
 
 
 # Static files (CSS, JavaScript, Images)
