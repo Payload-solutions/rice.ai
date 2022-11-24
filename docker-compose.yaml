@@ -2,17 +2,18 @@ version: '3.7'
 services:
   conv-server:
     build: ./cnn-server
+    command: python /code/manage.py runserver 0.0.0.0:8000
     network_mode: "host"
   client:
     build: ./cnn-client
     depends_on:
       - "conv-server"
     network_mode: "host"
-  gateway:
-    build: .
-    depends_on:
-      - "conv-server"
-    network_mode: "host"
+  # gateway:
+  #   build: .
+  #   depends_on:
+  #     - "conv-server"
+  #   network_mode: "host"
 
 networks:
   default:

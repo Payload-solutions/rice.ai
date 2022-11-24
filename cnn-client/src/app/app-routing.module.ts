@@ -8,6 +8,7 @@ import { ConvolutionComponent } from './components/convolution/convolution.compo
 import { ChartsComponent } from './components/charts/charts.component';
 import { MainComponent } from './components/main/main.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './services/auth.guard';
 
 
 const routes: Routes = [
@@ -17,14 +18,17 @@ const routes: Routes = [
     pathMatch:'full'
   },*/{
     path: '',
-    component:MainComponent
+    component:MainComponent,
+    canActivate:[AuthGuard]
   },{
     path: 'measurements',
-    component: ChartsComponent
+    component: ChartsComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'convolution',
-    component: ConvolutionComponent
+    component: ConvolutionComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'about',
