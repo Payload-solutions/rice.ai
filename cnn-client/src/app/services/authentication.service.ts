@@ -8,7 +8,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AuthenticationService {
   
-  private URL = 'http://127.0.0.1:8000/';
+  private URL = 'http://159.223.205.198:8000/';
 
   constructor(private http:HttpClient, private router: Router) { }
 
