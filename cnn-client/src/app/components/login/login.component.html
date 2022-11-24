@@ -1,44 +1,3 @@
-<!-- <div class="container p-4">
-  <div class="row">
-    <div class="col-md-5 mx-auto">
-      <div class="card text-center">
-        <div class="card-header">
-          <h5 class="card-title">Ingreso</h5>
-        </div>
-        <div class="card-body text-left">
-          <form >
-            <div class="form-group">
-              <strong><label for="InputUser">Email</label></strong>
-              <input
-                required
-                type="text"
-                class="form-control"
-                id="inputEmail4"
-                name="email"
-                name="email"
-              />
-            </div>
-            <div class="form-group">
-              <strong><label for="InputPass">Password</label></strong>
-              <input
-                required
-                type="password"
-                class="form-control"
-                id="inputPass"
-                name="password"
-              />
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-success btn-block">
-                Login
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 <section id="sectionId" class="h-100 gradient-form" style="background-color: #eee;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -54,28 +13,28 @@
                   <h4  class="mt-1 mb-5 pb-1">Somos The Rice AI team</h4>
                 </div>
 
-                <form>
+                <form (submit)="signIn()">
                   <p id="titleLogin">Inicia sesión con tu cuenta</p>
 
                   <div class="form-outline mb-4">
-                    <input type="email" id="form2Example11" class="form-control"
+                    <input type="text" [(ngModel)]="userLogin.username" id="inputUsernam" name="username" class="form-control"
                       placeholder="usuario o correo electrónico" />
                     <label class="form-label" for="form2Example11">Usuario</label>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password" id="form2Example22" class="form-control" />
+                    <input type="password" id="inputPassword" [(ngModel)]="userLogin.password" name="password" class="form-control" />
                     <label class="form-label" for="form2Example22">Contraseña</label>
                   </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Ingresar</button>
+                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Ingresar</button>
                     <a class="text-muted" href="#!">¿Olvidaste contraseña?</a>
                   </div>
 
                   <div class="d-flex align-items-center justify-content-center pb-4">
                     <p id="titleLogin" class="mb-0 me-2">¿No tienes una cuenta?</p>
-                    <button id="titleLogin" type="button" class="btn btn-outline-danger">Crea una nueva</button>
+                    <button id="titleLogin" type="submit" class="btn btn-outline-danger">Crea una nueva</button>
                   </div>
 
                 </form>

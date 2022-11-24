@@ -17,6 +17,7 @@ retrieving a token in the login
 class Login(ObtainAuthToken):
 
     def post(self, request, *args, **kwargs):
+        print(f"login attempting")
         login_serializer = self.serializer_class(data=request.data, context={'request':request})
         if login_serializer.is_valid():
             user = login_serializer.validated_data['user']

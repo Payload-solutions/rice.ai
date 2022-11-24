@@ -39,6 +39,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField("Last Names", max_length=255, blank=True, null=True)
     image = models.ImageField("Profile picture", upload_to='profile/', max_length=255, null=True, blank=True)
     is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     is_staff = models.BooleanField(default=False)
     historical = HistoricalRecords()
     objects = UserManager()

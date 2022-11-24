@@ -9,6 +9,7 @@ django = "*"
 djangorestframework = "*"
 django-simple-history = "*"
 pillow = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
