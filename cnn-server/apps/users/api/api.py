@@ -53,3 +53,14 @@ def user_detail_view(request, pk=None):
             return Response(user_seializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     return Response({"message": "We can't found that user with these params"}, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(["GET"])
+def image_convolution(request):
+    try:
+        from apps.users.core.nn.Net import init_training
+        print(init_training())
+        return Response({"type":"OK", "message":"success", "content":init_training()}, status=status.HTTP_200_OK)
+    except Exception as e:
+        print(str(e))
+        return Response({"type":"ERROR", "message":"Error trying to get information"}, status=status.HTTP_400_BAD_REQUEST)

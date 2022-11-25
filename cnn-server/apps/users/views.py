@@ -17,7 +17,6 @@ retrieving a token in the login
 class Login(ObtainAuthToken):
 
     def post(self, request, *args, **kwargs):
-        print(f"login attempting")
         login_serializer = self.serializer_class(data=request.data, context={'request':request})
         if login_serializer.is_valid():
             user = login_serializer.validated_data['user']
@@ -41,6 +40,6 @@ class Login(ObtainAuthToken):
             else:
                 return Response({"message":"This user can't make login"}, status=status.HTTP_401_UNAUTHORIZED)
         else:
-            return Response({"message":"Wrong credentials"}, status=status.HTTP_400_BAD_REQUEST0)
+            return Response({"message":"Wrong credentials"}, status=status.HTTP_400_BAD_REQUEST)
 
         return Response({"message":"Validaton wrong"}, status=status.HTTP_302_FOUND)
