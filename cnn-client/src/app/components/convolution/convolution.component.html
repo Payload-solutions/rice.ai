@@ -1,25 +1,38 @@
 <div>
-    <form >
-        
-        <div id="card-distance" class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title">Iniciar convolución</h5>
-                    </div>
-                    <div class="card-body">
-                        <p>Primero envía una imagen para que la red neuronal pueda 
-                            detectar la falta de nutrientes
-                        </p>
-                    </div>
-                </div>
-            </div>
+  <form>
+    <div id="card-distance" class="row">
+        <div class="col-md-3">
+
         </div>
-      
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">Envia una imagen</h5>
+          </div>
+          <div class="card-body">
+            <p>
+              Al enviar una imágen vamos a corroborar que porcentaje de prección
+              podemos tener de que sea una planta de arroz en correcto
+              crecimiento por su pigmentación
+            </p>
+          </div>
+        </div>
         <div class="custom-file">
-          <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-          <label class="custom-file-label" for="validatedCustomFile">Escoge una imagen...</label>
-          <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
-        </div>
-      </form>
+            <input
+                #imageInput
+                accept="image/*"
+              type="file"
+              (change)="getFile($event)"
+              class="custom-file-input"
+              id="validatedCustomFile"
+              required
+            />
+            <label class="custom-file-label" for="validatedCustomFile"
+              >Escoge una imagen...</label
+            >
+            <button id="buttonConvolution" class="btn btn-success btn-block" (click)="uploadImage()">Enviar</button>
+          </div>
+      </div>
+    </div>
+  </form>
 </div>

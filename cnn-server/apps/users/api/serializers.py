@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from apps.users.models import User
 
-
+from django import forms
 
 
 class UserTokenSerializer(serializers.ModelSerializer):
@@ -42,3 +42,7 @@ class UserListSerializer(serializers.ModelSerializer):
             "password": instance['password'],
             "created_at":instance['created_at']
         }
+
+
+class ImageForm(forms.Form):
+    image = forms.ImageField()
