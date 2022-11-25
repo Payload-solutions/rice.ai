@@ -25,38 +25,39 @@ import os
 import sys
 
 
-def create_and_load_convolution_model() -> Any:
-    # image folders
-    MAIN_PATH = "image_set"
-    TRAIN_PATH = f"{MAIN_PATH}/train"
-    TEST_PATH = f"{MAIN_PATH}/test"
+# image folders
+MAIN_PATH = "image_set"
+TRAIN_PATH = f"{MAIN_PATH}/train"
+TEST_PATH = f"{MAIN_PATH}/test"
 
-    train_gen = ImageDataGenerator(
-        rescale=1./255,
-        rotation_range=40,
-        width_shift_range=0.2,
-        height_shift_range=0.2,
-        shear_range=0.2,
-        horizontal_flip=True
-    )
+train_gen = ImageDataGenerator(
+    rescale=1./255,
+    rotation_range=40,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    shear_range=0.2,
+    horizontal_flip=True
+)
 
-    test_gen = ImageDataGenerator(
-        rescale = 1./255
-    )
+test_gen = ImageDataGenerator(
+    rescale = 1./255
+)
 
-    train_generator = train_gen.flow_from_directory(
-        TRAIN_PATH,
-        target_size=(64, 64),
-        batch_size=32,
-        class_mode="categorical"
-    )
-    test_generator = test_gen.flow_from_directory(
-        TEST_PATH,
-        target_size=(64, 64),
-        batch_size=32,
-        class_mode="categorical"
-    )
+train_generator = train_gen.flow_from_directory(
+    TRAIN_PATH,
+    target_size=(64, 64),
+    batch_size=32,
+    class_mode="categorical"
+)
+test_generator = test_gen.flow_from_directory(
+    TEST_PATH,
+    target_size=(64, 64),
+    batch_size=32,
+    class_mode="categorical"
+)
 
+
+def create_and_load_convolution_model(weights_path: str):
 
     model = Sequential()
 
@@ -127,8 +128,13 @@ def create_and_load_convolution_model() -> Any:
                 metrics=["accuracy"])
 
 
-    model.load_weights()
+    model.load_weights(weights_path)
     return model
 
 def init_training():
-    return os.listdir()
+    model = create_and_load_convolution_model(".weights/rice_model_4.hdf5")
+    loss, acc = model.evaluate(test_generator)[0], model.evaluate(test_generator)[1] 
+    return {
+        "loss":f"{loss*100} %",
+        "acc":f"{acc*100} %"
+    }
