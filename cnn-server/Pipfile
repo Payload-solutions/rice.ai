@@ -11,6 +11,7 @@ django-simple-history = "*"
 pillow = "*"
 django-cors-headers = "*"
 scipy = "*"
+pymysql = "*"
 
 [dev-packages]
 

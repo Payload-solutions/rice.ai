@@ -25,7 +25,10 @@ export class ConvolutionComponent implements OnInit {
 
   uploadImage(){
     const formData = new FormData();
-    formData.append('image', this.file);
+    formData.append('img_name', "imageee")
+    formData.append('accuracy', "imageee")
+    formData.append('loss', "imageee")
+    formData.append('img', this.file);
     this.imageService.uploadImage(formData)
     .subscribe(res=>{
       console.log(res);
