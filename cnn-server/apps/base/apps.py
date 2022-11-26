@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class CnnConfig(AppConfig):
+class BaseConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'apps.cnn'
+    name = 'apps.base'

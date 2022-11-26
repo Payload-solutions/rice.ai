@@ -25,5 +25,6 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('apps.users.api.urls')),
+    path('cnn/', include('apps.cnn.api.urls')),
     path('', Login.as_view(), name='login'),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
