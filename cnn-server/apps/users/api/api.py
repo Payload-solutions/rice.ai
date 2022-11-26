@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 
 
-from apps.users.api.serializers import UserSerializer, UserListSerializer, ImageForm
+from apps.users.api.serializers import UserSerializer, UserListSerializer
 from apps.users.models import User
 
 
@@ -55,23 +55,23 @@ def user_detail_view(request, pk=None):
     return Response({"message": "We can't found that user with these params"}, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(["GET", "POST"])
-def image_convolution(request):
-    try:
-        from apps.users.core.nn.Net import init_training, prediction
-        from apps.users.core.helper.image_handler import validate_image
-        import os
-        from pprint import pprint
-        # pprint(dir(request))
-        if request.method == "GET":
-            return Response({"type":"OK", "message":"success", "content":init_training()}, status=status.HTTP_200_OK)
-        elif request.method == "POST":
-            # data = validate_image(request, "File")
-            form = ImageForm(request.POST, request.FILES)
-            if form.is_valid():
-                return Response({"type":"OK", "message":"success"}, status=status.HTTP_200_OK)
-            else:
-                return Response({"type":"NOT OK", "message":"so success"}, status=status.HTTP_200_OK)
-    except Exception as e:
-        print(str(e))
-        return Response({"type":"ERROR", "message":"Error trying to get information"}, status=status.HTTP_400_BAD_REQUEST)
+# @api_view(["GET", "POST"])
+# def image_convolution(request):
+#     try:
+#         from apps.users.core.nn.Net import init_training, prediction
+#         from apps.users.core.helper.image_handler import validate_image
+#         import os
+#         from pprint import pprint
+#         # pprint(dir(request))
+#         if request.method == "GET":
+#             return Response({"type":"OK", "message":"success", "content":init_training()}, status=status.HTTP_200_OK)
+#         elif request.method == "POST":
+#             # data = validate_image(request, "File")
+#             form = ImageForm(request.POST, request.FILES)
+#             if form.is_valid():
+#                 return Response({"type":"OK", "message":"success"}, status=status.HTTP_200_OK)
+#             else:
+#                 return Response({"type":"NOT OK", "message":"so success"}, status=status.HTTP_200_OK)
+#     except Exception as e:
+#         print(str(e))
+#         return Response({"type":"ERROR", "message":"Error trying to get information"}, status=status.HTTP_400_BAD_REQUEST)
