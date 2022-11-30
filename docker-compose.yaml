@@ -20,8 +20,6 @@ services:
     command: python /code/manage.py runserver 0.0.0.0:8000
     depends_on:
       - db
-    links:
-      - "db:database"
     network_mode: "host"
   client:
     build: ./cnn-client
