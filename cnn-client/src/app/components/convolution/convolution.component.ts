@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ImageConvolutionService } from 'src/app/services/image-convolution.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { IConvolutionBody } from 'src/app/models/IConvolution';
+//import { ImageConvolutionService } from 'src/app/services/image-convolution.service';
+//import { HttpClient, HttpHeaders } from '@angular/common/http';
+//import { IConvolutionBody } from 'src/app/models/IConvolution';
 
 
 @Component({
@@ -15,8 +15,7 @@ export class ConvolutionComponent implements OnInit {
 
 
   file:any;
-  constructor(private imageService:ImageConvolutionService, 
-    private http:HttpClient) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -36,9 +35,9 @@ export class ConvolutionComponent implements OnInit {
 
 
 
-    let headers = new HttpHeaders();
-    headers = headers.append('Content-Type', 'multipart/form-data; boundary {}');
-    headers = headers.append('enctype', 'multipart/form-data');
+    // let headers = new HttpHeaders();
+    // headers = headers.append('Content-Type', 'multipart/form-data; boundary {}');
+    // headers = headers.append('enctype', 'multipart/form-data');
 
     fetch("http://127.0.0.1:8000/cnn/play_cnn",{
     method: "post",
