@@ -1,49 +1,86 @@
 import { Component, OnInit } from '@angular/core';
-//import { ImageConvolutionService } from 'src/app/services/image-convolution.service';
-//import { HttpClient, HttpHeaders } from '@angular/common/http';
-//import { IConvolutionBody } from 'src/app/models/IConvolution';
+import {
+  ModalDismissReasons,
+  NgbDatepickerModule,
+  NgbModal,
+} from '@ng-bootstrap/ng-bootstrap';
 
+import { IConvolutionBody } from 'src/app/models/IConvolution';
 
 @Component({
   selector: 'app-convolution',
   templateUrl: './convolution.component.html',
-  styleUrls: ['./convolution.component.css']
+  styleUrls: ['./convolution.component.css'],
 })
-
-
 export class ConvolutionComponent implements OnInit {
+  closeResult = '';
+  file: any;
 
+  convolution:IConvolutionBody[] = [];
+  
+  constructor(private modalService: NgbModal) {}
 
-  file:any;
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  open(content: any) {
+    this.modalService
+      .open(content, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {
+          //this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          //this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
   }
 
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
 
-  getFile(event: any){    
+  getFile(event: any) {
     this.file = event.target.files[0];
   }
 
+  uploadImage(event: Event) {
 
-  uploadImage(event: Event){
+    
+
     event.preventDefault();
-    const formData  = new FormData();
-    formData.append("img_name", "dick_tag");
-    formData.append("img", this.file);
+    const formData = new FormData();
+    formData.append('img_name', 'dick_tag');
+    formData.append('img', this.file);
     console.log(formData);
-
-
 
     // let headers = new HttpHeaders();
     // headers = headers.append('Content-Type', 'multipart/form-data; boundary {}');
     // headers = headers.append('enctype', 'multipart/form-data');
 
-    fetch("http://127.0.0.1:8000/cnn/play_cnn",{
-    method: "post",
-    body:formData
-  }).catch((error)=>{console.log(error)});
-
+    fetch('http://127.0.0.1:8000/cnn/play_cnn', {
+      method: 'post',
+      body: formData,
+    })
+    .then((res)=> res.json())
+    .then((data)=>{
+      console.log(data)
+      const convBody:IConvolutionBody = {
+        img_name:data.Content.img_name,
+        healthy:data.Content.healthy,
+        sick: data.Content.sick
+      }
+      this.convolution.push(convBody);
+      
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
     // this.http.post("http://127.0.0.1:8000/cnn/play_cnn", formData, {headers})
     // .subscribe(res=>{
@@ -58,7 +95,5 @@ export class ConvolutionComponent implements OnInit {
     //   }, err =>{
     //     console.log(err);
     //   })
-    
   }
-
 }

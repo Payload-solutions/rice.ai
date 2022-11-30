@@ -1,6 +1,7 @@
 
 
 export interface IConvolutionBody{
-    img_name: string,
-    img: File
+    img_name?: string,
+    healthy?: string,
+    sick?: string
 }

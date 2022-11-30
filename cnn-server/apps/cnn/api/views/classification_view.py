@@ -25,7 +25,7 @@ class ClassificationCreateAPIView(generics.CreateAPIView):
             serializer = self.serializer_class(data=request.data)
             if serializer.is_valid():
                 serializer.save()
-                return Response({"Content":"image convolution", "Message":"success"}, status=status.HTTP_201_CREATED)
+                return Response({"Content":serializer.data}, status=status.HTTP_201_CREATED)
         except Exception as e:
             print("Error by: "+str(e))
             return Response({"message":"Error", "Error":str(e)},status=status.HTTP_400_BAD_REQUEST)

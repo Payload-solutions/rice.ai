@@ -15,5 +15,7 @@ class ClassificationSerializer(serializers.ModelSerializer):
         return {
             'id': instance.id,
             'img_name':instance.img_name,
-            'img': instance.img.url if instance.img != '' else ''
+            'img': instance.img.url if instance.img != '' else '',
+            'healthy':instance.accuracy_healthy,
+            'sick':instance.loss_nitrogen
         }

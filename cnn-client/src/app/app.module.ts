@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthGuard } from './services/auth.guard';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -31,7 +32,8 @@ import { AuthGuard } from './services/auth.guard';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     AuthGuard,{

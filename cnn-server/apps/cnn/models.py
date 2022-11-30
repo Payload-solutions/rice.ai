@@ -34,7 +34,7 @@ class Classification(BaseModel):
         x = img_to_array(image)
         x = x.reshape(1,64,64,3)        
         result = model.predict(x)
-        self.accuracy_healthy, self.loss_nitrogen = result[0][0], result[0][1]
+        self.accuracy_healthy, self.loss_nitrogen = str(float(result[0][0])*100), str(int(result[0][1])*100)
         super().save(*args, **kwargs)
         
 
