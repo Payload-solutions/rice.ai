@@ -10,3 +10,10 @@ class ClassificationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Classification
         exclude = ('state', 'created_at','modified_at','deleted_at')
+    
+    def to_representation(self, instance):
+        return {
+            'id': instance.id,
+            'img_name':instance.img_name,
+            'img': instance.img.url if instance.img != '' else ''
+        }

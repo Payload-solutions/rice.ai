@@ -116,7 +116,8 @@ AUTH_USER_MODEL  = 'users.User'
 #     # "http://localhost:4200",
 # ]
 CORS_ALLOW_ALL_ORIGINS=True
-
+CORS_ALLOW_HEADERS = ('content-disposition', 'accept-encoding',
+                      'content-type', 'accept', 'origin', 'authorization', 'enctype')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/

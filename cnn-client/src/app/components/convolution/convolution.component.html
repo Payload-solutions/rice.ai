@@ -1,5 +1,5 @@
 <div>
-  <form>
+  <form (submit)="uploadImage($event)">
     <div id="card-distance" class="row">
         <div class="col-md-3">
 
@@ -19,18 +19,17 @@
         </div>
         <div class="custom-file">
             <input
-                #imageInput
-                accept="image/*"
               type="file"
-              (change)="getFile($event)"
+              name="img"
               class="custom-file-input"
               id="validatedCustomFile"
+              (change)="getFile($event)"
               required
             />
             <label class="custom-file-label" for="validatedCustomFile"
               >Escoge una imagen...</label
             >
-            <button id="buttonConvolution" class="btn btn-success btn-block" (click)="uploadImage()">Enviar</button>
+            <button id="buttonConvolution" type="submit" class="btn btn-success btn-block">Enviar</button>
           </div>
       </div>
     </div>
