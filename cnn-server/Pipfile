@@ -4,14 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-tensorflow = "*"
+tensorflow = "==2.9.2"
 django = "*"
-djangorestframework = "*"
-django-simple-history = "*"
+django-rest-framework = "*"
 pillow = "*"
-django-cors-headers = "*"
-scipy = "*"
 pymysql = "*"
+django-cors-headers = "*"
+django-simple-history = "*"
 
 [dev-packages]
 

@@ -2,17 +2,17 @@ version: '3.7'
 services:
   db:
     image: mysql/mysql-server:latest
-    container_name: djangoDB
     ports:
-      - "3305:3306"
-    networks:
-      - default
+      - "3306:3306"
+    # networks:
+    #   - compose_network
     restart: always
     environment:
-      - "MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}"
-      - "MYSQL_USER=${DB_USER}"
-      - "MYSQL_PASSWORD=${DB_PASSWORD}"
-      - "MYSQL_DATABASE=${DB_NAME}"
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=root_arturo
+      - MYSQL_PASSWORD=arturo_root
+      - MYSQL_DATABASE=riceai
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     volumes:
       - mysql_data:/var/lib/mysql
   conv-server:
@@ -20,12 +20,14 @@ services:
     command: python /code/manage.py runserver 0.0.0.0:8000
     depends_on:
       - db
-    network_mode: "host"
+    # networks:
+    #   - compose_network
   client:
     build: ./cnn-client
     depends_on:
       - "conv-server"
-    network_mode: "host"
+    # networks:
+    #   - compose_network
   # gateway:
   #   build: .
   #   depends_on:
@@ -33,6 +35,7 @@ services:
   #   network_mode: "host"
 
 networks:
-  default:
+  compose_network:
+
 volumes:
   mysql_data:

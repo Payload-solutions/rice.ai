@@ -23,8 +23,22 @@ DATABASES = {
 #             'PORT': os.getenv('DB_PORT'),
 #         }
 #     }
+# DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'NAME': 'riceai',
+#             'USER': 'root_arturo',
+#             'PASSWORD': 'arturo_root',
+#             'HOST': 'db',
+#             'PORT': '3306',
+#             'ATOMIC_REQUESTS': True,
+#         }
+#     }
 
-
+# DATABASES = {
+#     'default': 'mysql://root_arturo:arturo_root@db:3306/riceai',
+# }
+# DATABASES['default']['ATOMIC_REQUESTS'] = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
