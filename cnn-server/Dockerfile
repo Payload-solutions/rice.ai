@@ -1,8 +1,10 @@
 FROM python:3.10.8
-RUN pip install --upgrade pip
+# RUN pip install --upgrade pip
 ENV PYTHONUNBUFFERED 1
+ENV TF_CPP_MIN_LOG_LEVEL=3
+RUN mkdir /code
+WORKDIR /code
+COPY requirements.txt /code/
+
+RUN pip install --upgrade pip && pip install -r requirements.txt
 COPY . /code/
-COPY requirements.txt /code/requirements.txt
-WORKDIR /code/
-RUN pip install -r requirements.txt
-EXPOSE 8000

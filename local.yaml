@@ -1,25 +1,26 @@
 version: '3.7'
 services:
-  db:
-    image: mysql/mysql-server:latest
+  mysql:
+    container_name: djangodb
+    
+    build:
+      dockerfile: ./mysql/Dockerfile
+      # args:
+      #   - MYSQL_DATABASE=${MYSQL_DATABASE}
+      #   - MYSQL_USER=${MYSQL_USER}
+      #   - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      #   - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    env_file: .env
     ports:
       - "3306:3306"
-    # networks:
-    #   - compose_network
-    restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=root_arturo
-      - MYSQL_PASSWORD=arturo_root
-      - MYSQL_DATABASE=riceai
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     volumes:
       - mysql_data:/var/lib/mysql
+
   conv-server:
     build: ./cnn-server
     command: python /code/manage.py runserver 0.0.0.0:8000
     depends_on:
-      - db
+      - mysql
     # networks:
     #   - compose_network
   client:

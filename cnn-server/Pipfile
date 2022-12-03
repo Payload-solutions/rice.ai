@@ -11,6 +11,8 @@ pillow = "*"
 pymysql = "*"
 django-cors-headers = "*"
 django-simple-history = "*"
+mysqlclient = "*"
+django-environ = "*"
 
 [dev-packages]
 
