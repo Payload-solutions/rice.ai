@@ -6,6 +6,7 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 
 import { IConvolutionBody } from 'src/app/models/IConvolution';
+import { ConvEnvironment } from 'src/app/models/environment';
 //import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @Component({
@@ -17,6 +18,9 @@ export class ConvolutionComponent implements OnInit {
   closeResult = '';
   file: any;
   imgUrl: any;
+
+
+  url = ConvEnvironment.apiUrl;
 
   convolution: IConvolutionBody[] = [];
 
@@ -95,7 +99,7 @@ export class ConvolutionComponent implements OnInit {
     // headers = headers.append('Content-Type', 'multipart/form-data; boundary {}');
     // headers = headers.append('enctype', 'multipart/form-data');
 
-    fetch('http://127.0.0.1:8000/cnn/play_cnn', {
+    fetch(this.url, {
       method: 'post',
       body: formData,
     })
