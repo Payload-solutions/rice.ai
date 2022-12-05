@@ -6,27 +6,31 @@
 
 
         <div class="container p-4">
-            <form action="/stck/add" method="POST" enctype="multipart/form-data">
+            <form (submit)="signUp()">
                 <div class="form-row">
                     <div class="form-group col-md-10">
                         <label for="inputNombre">Nombres </label>
-                        <input required type="text" class="form-control" id="inputNombre" name="name" autofocus>
+                        <input required type="text" [(ngModel)]="userSignup.name" class="form-control" id="inputNombre" name="name" autofocus>
                     </div>
                     <div class="form-group col-md-10">
-                        <label for="inputNombre">Apellidos </label>
-                        <input required type="text" class="form-control" id="inputNombre" name="name" autofocus>
+                        <label for="inputLName">Apellidos </label>
+                        <input required type="text" [(ngModel)]="userSignup.last_name" class="form-control" id="inputLName" name="name" autofocus>
                     </div>
                     <div class="form-group col-md-10">
-                        <label for="inputNombre">usuario </label>
-                        <input required type="text" class="form-control" id="inputNombre" name="name" autofocus>
+                        <label for="inputEmail">Email </label>
+                        <input required type="email" [(ngModel)]="userSignup.email" class="form-control" id="inputEmail" name="name" autofocus>
                     </div>
                     <div class="form-group col-md-10">
-                        <label for="inputNombre">Contraseña </label>
-                        <input required type="text" class="form-control" id="inputNombre" name="name" autofocus>
+                        <label for="inputUsername">usuario </label>
+                        <input required type="text" [(ngModel)]="userSignup.username" class="form-control" id="inputUsername" name="name" autofocus>
+                    </div>
+                    <div class="form-group col-md-10">
+                        <label for="inputPassword">Contraseña </label>
+                        <input required type="text" [(ngModel)]="userSignup.password" class="form-control" id="inputPassword" name="name" autofocus>
                     </div>
                     <div class="form-group col-md-5">
-                        <label for="inputTypeFood">Cargo laboral</label>
-                        <select id="inputTypeFood" class="form-control" name="tipo_alimento">
+                        <label for="inputTypeRole">Cargo laboral</label>
+                        <select id="inputTypeRole" [(ngModel)]="userSignup.role" class="form-control" name="tipo_alimento">
                             <option>Agricultor</option>
                         </select>
                     </div>

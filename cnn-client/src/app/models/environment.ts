@@ -4,7 +4,7 @@ const URL = "http://127.0.0.1:8000"
 
 
 export const SignupEnvironment = {
-    apiUrl: URL+"/signup"
+    apiUrl: URL+"/user/user/"
 }
 
 export const ConvEnvironment = {
@@ -12,6 +12,6 @@ export const ConvEnvironment = {
 }
 
 export const LoginEnvironment = {
-    apiUrl: URL+"/"
+    apiUrl: URL+""
 }
 

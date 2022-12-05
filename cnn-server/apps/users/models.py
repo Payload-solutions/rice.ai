@@ -37,6 +37,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.CharField("Email field", max_length=255, unique=True)
     name = models.CharField("Names", max_length=255, blank=True, null=True)
     last_name = models.CharField("Last Names", max_length=255, blank=True, null=True)
+    role = models.CharField("position", max_length=255, blank=True, null=True)
     image = models.ImageField("Profile picture", upload_to='profile/', max_length=255, null=True, blank=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)

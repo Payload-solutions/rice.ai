@@ -6,6 +6,7 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 
 import { IConvolutionBody } from 'src/app/models/IConvolution';
+//import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-convolution',
@@ -83,7 +84,7 @@ export class ConvolutionComponent implements OnInit {
       }
     }
 
-
+    move();
     event.preventDefault();
     const formData = new FormData();
     formData.append('img_name', 'dick_tag');
