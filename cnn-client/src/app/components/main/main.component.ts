@@ -1,6 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 import { Chart, registerables } from 'chart.js';
+import { MainEnvironment, IMain } from 'src/app/models/environment';
+
+
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -9,13 +14,28 @@ import { Chart, registerables } from 'chart.js';
 export class MainComponent implements OnInit {
 
   public chart: any;
+  url = MainEnvironment.apiUrl;
+  mainBody:IMain | any = {};
 
-  constructor() {
+  constructor(private http: HttpClient) {
     Chart.register(...registerables);
   }
 
   ngOnInit(): void {
     this.lineGenerateChart();
+    this.loadMainValues();
+    console.log(this.mainBody);
+  }
+
+
+
+  loadMainValues(){
+    this.http.get<any>(this.url)
+      .subscribe(res=>{
+        console.log(res)
+        this.mainBody= res;
+      })
+     
   }
 
   lineGenerateChart() {

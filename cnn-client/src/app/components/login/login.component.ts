@@ -20,6 +20,10 @@ export class LoginComponent implements OnInit {
     localStorage.setItem("token", "");
   }
 
+  create(){
+    this.router.navigate(['/signup'])
+  }
+
   signIn(){
   
     

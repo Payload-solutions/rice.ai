@@ -15,3 +15,14 @@ export const LoginEnvironment = {
     apiUrl: URL+""
 }
 
+
+export const MainEnvironment = {
+    apiUrl: URL+"/cnn/main/"
+}
+
+
+export interface IMain{
+    images_stored: number,
+    highest_value: string
+}
+

@@ -1,10 +1,11 @@
 from apps.base.api import GeneralListApiView
 from apps.cnn.api.serializers import (
     ClassificationSerializer,
-    ListeClassificationSerializer
+    ListeClassificationSerializer,
+    MainClassificationViewSerializer
     )
 
-
+from apps.cnn.models import Classification
 from rest_framework import (
     generics,
     status
@@ -21,6 +22,7 @@ class ClassificationListApiView(GeneralListApiView):
     # def get(self, request, *args, **kwargs):
     #     serializer = self.serializer_class.data
     #     return Response({"Content":serializer}, status=status.HTTP_200_OK)
+    
 
 
 class ClassificationCreateAPIView(generics.CreateAPIView):
@@ -38,3 +40,18 @@ class ClassificationCreateAPIView(generics.CreateAPIView):
             return Response({"message":"Error", "Error":str(e)},status=status.HTTP_400_BAD_REQUEST)
 
 
+
+class MainClassificationCreateAPIView(GeneralListApiView):
+    serializer_class = MainClassificationViewSerializer
+    
+    
+    def get(self, request, *args, **kwargs):
+        
+        models = Classification.objects.all().values("accuracy_healthy")
+        highest_value = list()
+        for x in models:
+            highest_value.append(x['accuracy_healthy'])
+        
+        sorted(highest_value, reverse=False)
+        return Response({"images_stored":str(len(Classification.objects.all())), "highest_value":float(f"{float(highest_value[len(highest_value)-1]):.2f}")}, status=status.HTTP_200_OK)
+    

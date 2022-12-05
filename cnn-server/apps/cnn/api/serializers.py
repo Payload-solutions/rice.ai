@@ -33,5 +33,22 @@ class ListeClassificationSerializer(serializers.ModelSerializer):
             'img_name':instance.img_name,
             'img': instance.img.url if instance.img != '' else '',
             'healthy':instance.accuracy_healthy,
-            "recomendation": recomendation(instance.accuracy_healthy, instance.loss_nitrogen)
+            "recomendation": recomendation(instance.accuracy_healthy, instance.loss_nitrogen),
+            "images_stored":len(Classification.objects.all()),
         }
+
+
+class MainClassificationViewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Classification
+        exclude = ('state', 'created_at','modified_at','deleted_at')
+    
+    def to_representation(self, instance):
+        return {
+            # 'img_name':instance.img_name,
+            # 'img': instance.img.url if instance.img != '' else '',
+            # 'healthy':instance.accuracy_healthy,
+            # "recomendation": recomendation(instance.accuracy_healthy, instance.loss_nitrogen),
+            "images_stored":len(Classification.objects.all()),
+        }
+    
