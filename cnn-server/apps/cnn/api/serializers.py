@@ -18,7 +18,7 @@ class ClassificationSerializer(serializers.ModelSerializer):
             'img': instance.img.url if instance.img != '' else '',
             'healthy':instance.accuracy_healthy,
             'sick':instance.loss_nitrogen,
-            "recomendation": recomendation(instance.accuracy_healthy)
+            "recomendation": recomendation(instance.accuracy_healthy,instance.loss_nitrogen)
         }
 
 
@@ -33,4 +33,5 @@ class ListeClassificationSerializer(serializers.ModelSerializer):
             'img_name':instance.img_name,
             'img': instance.img.url if instance.img != '' else '',
             'healthy':instance.accuracy_healthy,
+            "recomendation": recomendation(instance.accuracy_healthy, instance.loss_nitrogen)
         }

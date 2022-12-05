@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 
 import { Router } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import { LoginEnvironment } from '../models/environment';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
   
-  private URL = 'http://159.223.205.198:8000/';
+  private URL = LoginEnvironment.apiUrl;
 
   constructor(private http:HttpClient, private router: Router) { }
 

@@ -9,7 +9,7 @@ import { ChartsComponent } from './components/charts/charts.component';
 import { MainComponent } from './components/main/main.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './services/auth.guard';
-
+import { SignupComponent } from './components/signup/signup.component';
 
 const routes: Routes = [
   /*{
@@ -36,6 +36,9 @@ const routes: Routes = [
   },{
     path: 'login',
     component: LoginComponent
+  },{
+    path: 'signup',
+    component: SignupComponent
   }
 ];
 

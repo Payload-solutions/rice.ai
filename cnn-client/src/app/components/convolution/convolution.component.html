@@ -1,8 +1,8 @@
-<div >
+<div>
   <form (submit)="uploadImage($event)">
     <div id="card-distance" class="row">
-        <div class="col-md-3">
-        </div>
+      <div class="col-md-3">
+      </div>
       <div class="col-md-6">
         <div class="card">
           <div class="card-header">
@@ -17,29 +17,41 @@
           </div>
         </div>
         <div class="custom-file">
-            <input
-              type="file"
-              name="img"
-              class="custom-file-input"
-              id="validatedCustomFile"
-              (change)="getFile($event)"
-              required
-            />
-            <label class="custom-file-label" for="validatedCustomFile"
-              >Escoge una imagen...</label
-            >
-            <button id="buttonConvolution" type="submit" class="btn btn-success btn-block">Enviar</button>
-          </div>
+          <input type="file" name="img" class="custom-file-input" id="validatedCustomFile" (change)="getFile($event)"
+            required />
+          <img [src]="imgUrl" alt="" height="200" *ngIf="imgUrl">
+          <label class="custom-file-label" for="validatedCustomFile">Escoge una imagen...</label>
+          <button id="buttonConvolution" type="submit" class="btn btn-success btn-block">Enviar</button>
+        </div>
       </div>
     </div>
   </form>
-  
+
+  <div *ngIf="file" class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div>
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">la imagen</h5>
+          </div>
+          <div class="card-body">
+            <div id="myProgress">
+              <div id="myBar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
   <div class="row">
     <div class="col-md-5">
 
     </div>
     <div class="col-md-6" *ngIf="convolution.length>0">
-      <ng-template  #content let-modal>
+      <ng-template #content let-modal>
         <div class="modal-header">
           <h4 class="modal-title" id="modal-basic-title">Estado de la red</h4>
           <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
@@ -57,12 +69,12 @@
           <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">OK</button>
         </div>
       </ng-template>
-      
+
       <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Revisión</button>
-      
+
       <hr />
-      
+
       <pre>{{ closeResult }}</pre>
-  </div>
+    </div>
   </div>
 </div>
