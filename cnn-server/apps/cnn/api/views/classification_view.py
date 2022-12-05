@@ -1,5 +1,8 @@
 from apps.base.api import GeneralListApiView
-from apps.cnn.api.serializers import ClassificationSerializer
+from apps.cnn.api.serializers import (
+    ClassificationSerializer,
+    ListeClassificationSerializer
+    )
 
 
 from rest_framework import (
@@ -12,8 +15,12 @@ from rest_framework.parsers import JSONParser, MultiPartParser
 from rest_framework.response import Response
 
 class ClassificationListApiView(GeneralListApiView):
-    serializer_class = ClassificationSerializer
+    serializer_class = ListeClassificationSerializer
     fields = ['img_name', 'img']
+    
+    # def get(self, request, *args, **kwargs):
+    #     serializer = self.serializer_class.data
+    #     return Response({"Content":serializer}, status=status.HTTP_200_OK)
 
 
 class ClassificationCreateAPIView(generics.CreateAPIView):
@@ -29,7 +36,5 @@ class ClassificationCreateAPIView(generics.CreateAPIView):
         except Exception as e:
             print("Error by: "+str(e))
             return Response({"message":"Error", "Error":str(e)},status=status.HTTP_400_BAD_REQUEST)
-
-
 
 
