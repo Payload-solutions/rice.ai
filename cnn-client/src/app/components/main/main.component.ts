@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 import { Chart, registerables } from 'chart.js';
-import { MainEnvironment, IMain } from 'src/app/models/environment';
+import { MainEnvironment, IMain, TrainRecords } from 'src/app/models/environment';
 
-
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-main',
@@ -15,15 +15,19 @@ export class MainComponent implements OnInit {
 
   public chart: any;
   url = MainEnvironment.apiUrl;
+  convUrl = TrainRecords.apiUrl;
   mainBody:IMain | any = {};
+  convBody: any = [];
+  userLogged: string | any = "";
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private authenticationService: AuthenticationService) {
     Chart.register(...registerables);
   }
 
   ngOnInit(): void {
     this.lineGenerateChart();
     this.loadMainValues();
+    this.loadingConvolution();
     console.log(this.mainBody);
   }
 
@@ -35,8 +39,23 @@ export class MainComponent implements OnInit {
         console.log(res)
         this.mainBody= res;
       })
+      this.userLogged = this.authenticationService.getUserName();
      
   }
+
+
+  loadingConvolution(){
+    this.http.get<any>(this.convUrl)
+      .subscribe(res=>{
+        
+        this.convBody= res;
+      }, err => {
+        console.log(err);
+      })
+  }
+
+
+
 
   lineGenerateChart() {
     //const labels = ['April','May','June','July','August','September','November'];

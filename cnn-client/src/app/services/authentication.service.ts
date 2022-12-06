@@ -30,6 +30,10 @@ export class AuthenticationService {
     return localStorage.getItem("token");
   }
 
+  getUserName(){
+    return localStorage.getItem("user");
+  }
+
   logOut(){
     this.router.navigate(["/login"]);
     localStorage.setItem("token", "");

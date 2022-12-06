@@ -29,12 +29,13 @@ export class LoginComponent implements OnInit {
     
     this.authService.signIn(this.userLogin)
       .subscribe(res=>{
-        //console.log(res.token)
+        console.log(res)
         localStorage.setItem("token", res.token)
+        localStorage.setItem("user", res.user.name)
         //console.log("this man i know"+localStorage.getItem('token'))
         this.router.navigate(['/'])
       }, err=>{
-        console.log(err);
+        alert("Credenciales incorrectas");
       })
   }
 

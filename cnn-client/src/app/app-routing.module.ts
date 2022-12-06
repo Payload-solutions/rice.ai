@@ -10,6 +10,9 @@ import { MainComponent } from './components/main/main.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './services/auth.guard';
 import { SignupComponent } from './components/signup/signup.component';
+import { ListImagesComponent } from './components/list-images/list-images.component';
+
+
 
 const routes: Routes = [
   /*{
@@ -39,6 +42,10 @@ const routes: Routes = [
   },{
     path: 'signup',
     component: SignupComponent
+  },{
+    path:'list_images',
+    component: ListImagesComponent,
+    canActivate:[AuthGuard]
   }
 ];
 

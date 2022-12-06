@@ -22,8 +22,35 @@ export const MainEnvironment = {
 }
 
 
+export const ListImagesEnvironment = {
+    apiUrl: URL+"/images_class/images"
+}
+
+
+export const TrainRecords = {
+    apiUrl: URL+"/cnn/cnn/"
+}
+
+
 export interface IMain{
     images_stored: number,
     highest_value: string
 }
+
+export interface IList{
+    img_name: string,
+    img: string,
+    category: string,
+    tag_label: string
+}
+
+
+export interface ITraining{
+    img_name: string,
+    img: string,
+    healthy: string,
+    sick: string,
+    recomendation: string
+}
+
 

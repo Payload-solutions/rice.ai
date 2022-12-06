@@ -13,9 +13,10 @@ export class TokenInterceptorService implements HttpInterceptor {
   constructor(private authService: AuthenticationService) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let tokenizeRequest = req.clone({
-      setHeaders:{
-        'Content-Type' : 'application/json; charset=utf-8',
-        'Accept'       : 'application/json',
+      setHeaders: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Accept': 'application/json',
+        //'Host': '127.0.0.1',
         'Authorization': `Bearer ${this.authService.getToken()}`
       }
     });

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,9 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthGuard } from './services/auth.guard';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SignupComponent } from './components/signup/signup.component';
+import { ListImagesComponent } from './components/list-images/list-images.component';
+
+
 
 
 
@@ -28,7 +31,8 @@ import { SignupComponent } from './components/signup/signup.component';
     MeasuresComponent,
     MainComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ListImagesComponent
   ],
   imports: [
     BrowserModule,
@@ -46,4 +50,5 @@ import { SignupComponent } from './components/signup/signup.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

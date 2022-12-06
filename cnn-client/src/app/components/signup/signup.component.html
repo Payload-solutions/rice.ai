@@ -26,8 +26,12 @@
                     </div>
                     <div class="form-group col-md-10">
                         <label for="inputPassword">Contraseña </label>
-                        <input required type="text" [(ngModel)]="userSignup.password" class="form-control" id="inputPassword" name="name" autofocus>
+                        <input required type="password" [(ngModel)]="userSignup.password" class="form-control" id="inputPassword" name="name" autofocus>
                     </div>
+                    <!-- <div class="form-group col-md-10">
+                        <label for="inputPassword">Confirma contraseña</label>
+                        <input required type="password" [(ngModel)]="userSignup.password" class="form-control" id="inputPassword" name="name" autofocus>
+                    </div> -->
                     <div class="form-group col-md-5">
                         <label for="inputTypeRole">Cargo laboral</label>
                         <select id="inputTypeRole" [(ngModel)]="userSignup.role" class="form-control" name="tipo_alimento">

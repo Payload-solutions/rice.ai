@@ -1,0 +1,16 @@
+<div class="container p-4" *ngFor="let image of listBody">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                    {{image.img_name}}
+                </div>
+                <img class="card-img-top" height="200px" src="http://localhost:8000{{image.img}}">
+                <div class="card-body">
+                    <p>{{image.category}}</p>
+                    <p>Etiqueta {{image.tag_label}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
