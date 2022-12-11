@@ -11,7 +11,6 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './services/auth.guard';
 import { SignupComponent } from './components/signup/signup.component';
 import { ListImagesComponent } from './components/list-images/list-images.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 const routes: Routes = [
@@ -22,16 +21,16 @@ const routes: Routes = [
   },*/{
     path: '',
     component:MainComponent,
-    //canActivate:[AuthGuard]
+    canActivate:[AuthGuard]
   },{
     path: 'measurements',
     component: ChartsComponent,
-    //canActivate:[AuthGuard]
+    canActivate:[AuthGuard]
   },
   {
     path: 'convolution',
     component: ConvolutionComponent,
-    //canActivate:[AuthGuard]
+    canActivate:[AuthGuard]
   },
   {
     path:'about',
@@ -46,9 +45,6 @@ const routes: Routes = [
     path:'list_images',
     component: ListImagesComponent,
     //canActivate:[AuthGuard]
-  },{
-    path: 'sidebar',
-    component: SidebarComponent
   }
 ];
 

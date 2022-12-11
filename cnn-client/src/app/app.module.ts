@@ -16,7 +16,6 @@ import { AuthGuard } from './services/auth.guard';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SignupComponent } from './components/signup/signup.component';
 import { ListImagesComponent } from './components/list-images/list-images.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 
@@ -33,8 +32,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     MainComponent,
     LoginComponent,
     SignupComponent,
-    ListImagesComponent,
-    SidebarComponent
+    ListImagesComponent
   ],
   imports: [
     BrowserModule,
