@@ -28,7 +28,7 @@ class Login(ObtainAuthToken):
                         'token':token.key,
                         'user':user_serializer.data,
                         'message':'login successfully'
-                    }, status=status.HTTP_201_CREATED)
+                    }, status=status.HTTP_200_OK)
                 else:
                     token.delete()
                     token = Token.objects.create(user=user)
@@ -36,7 +36,7 @@ class Login(ObtainAuthToken):
                         'token':token.key,
                         'user':user_serializer.data,
                         'message':'login successfully'
-                    }, status=status.HTTP_201_CREATED)
+                    }, status=status.HTTP_200_OK)
             else:
                 return Response({"message":"This user can't make login"}, status=status.HTTP_401_UNAUTHORIZED)
         else:
