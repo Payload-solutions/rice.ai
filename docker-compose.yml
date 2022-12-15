@@ -21,7 +21,20 @@ services:
     network_mode: "host"
     # networks:
     #   - compose_network
-
+  #iot-server:
+  db:
+    image: mysql/mysql-server:latest
+    container_name: iot-db
+    build: ./cnn-iot/src/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: IOTSoilValues
+      MYSQL_USER: root_arturo
+      MYSQL_PASSWORD: arturo_root
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    ports:
+      - 3306:3306
+    network_mode: "host"
 networks:
   compose_network:
 

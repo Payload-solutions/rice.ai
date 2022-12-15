@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs')
 const router = express.Router();
-const {parse} = require("csv-parse");
+const pool = require("../mysql/connection");
 
 router.get('', async(req, res)=>{
     res.json({
@@ -9,8 +9,9 @@ router.get('', async(req, res)=>{
     });
 });
 
-router.get('', async(req, res)=>{
-
+router.get('/iot-values', async(req, res)=>{
+    const values = await pool.query("select * from soil_values");
+    console.log(values);
 })
 
 module.exports = router;
