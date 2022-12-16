@@ -1,42 +1,62 @@
 version: '3.7'
 services:
-  conv-server:
-    build: ./cnn-server
-    container_name: cnn-server
-    command: python manage.py runserver 0.0.0.0:8000
+  # conv-server:
+  #   build: ./cnn-server
+  #   container_name: cnn-server
+  #   command: python manage.py runserver 0.0.0.0:8000
+  #   restart: always
+  #   # volumes:
+  #   #   - .:/code
+  #   # depends_on:
+  #   #   - db
+  #   network_mode: "host"
+  #   # networks:
+  #   #   - compose_network
+  # client:
+  #   build: ./cnn-client
+  #   container_name: client
+  #   depends_on:
+  #     - "conv-server"
+  #   restart: always
+  #   network_mode: "host"
+  #   # networks:
+  #   #   - compose_network
+  iot-server:
+    build: ./cnn-iot
+    container_name: cnn-iot
     restart: always
-    # volumes:
-    #   - .:/code
-    # depends_on:
-    #   - db
     network_mode: "host"
-    # networks:
-    #   - compose_network
-  client:
-    build: ./cnn-client
-    container_name: client
-    depends_on:
-      - "conv-server"
-    restart: always
-    network_mode: "host"
-    # networks:
-    #   - compose_network
-  #iot-server:
-  db:
+  servicedb:
     image: mysql/mysql-server:latest
-    container_name: iot-db
+    container_name: servicesdb
     build: ./cnn-iot/src/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: IOTSoilValues
       MYSQL_USER: root_arturo
       MYSQL_PASSWORD: arturo_root
-    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
-    ports:
-      - 3306:3306
+    # volumes:
+    #   # - mysql_data:/var/lib/mysql
+    #   - ./mysql/scripts:/docker-entrypoint-initdb.d
+    #   # - ./mysql/scripts/riceaiv3.sql:/docker-entrypoint-initdb.d/riceaiv3.sql
     network_mode: "host"
+  riceaiv3:
+    image: mysql/mysql-server:latest
+    container_name: riceaiv3
+    build: ./cnn-server/production/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: riceaiv3
+      MYSQL_USER: root_arturo
+      MYSQL_PASSWORD: arturo_root
+    volumes:
+      # - mysql_data:/var/lib/mysql
+      - ./cnn-server/production/mysql/scripts/riceaiv3.sql:/docker-entrypoint-initdb.d/riceaiv3.sql
+    #network_mode: "host"
+    ports: ['9999:3306']
 networks:
-  compose_network:
+  iot-db:
+    driver: host
 
 volumes:
   mysql_data:

@@ -1,0 +1,11 @@
+#Create MySQL Image for JSP Tutorial Application
+FROM mysql/mysql-server:latest
+
+ENV MYSQL_ROOT_PASSWORD=root
+ENV MYSQL_DATABASE=riceaiv3
+ENV MYSQL_USER=root_arturo
+ENV MYSQL_PASSWORD=arturo_root
+ENV MYSQL_HOST=localhost
+
+COPY ./riceaiv3.sql /docker-entrypoint-initdb.d/1.sql
+# EXPOSE 3306

@@ -32,8 +32,10 @@ DATABASES = {
         'NAME': 'riceaiv3',
         'USER': 'root_arturo',
         'PASSWORD': 'arturo_root',
-        'HOST': '127.0.0.1',
-        'PORT': '3306'
+        'HOST':'0.0.0.0',
+        #'HOST': '127.0.0.1',
+        'PORT': '9999'
+        #'PORT': '3306'
     }
 }
 
