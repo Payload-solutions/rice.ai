@@ -4,7 +4,7 @@ const app = express();
 const fs = require("fs");
 const csvtojson = require('csvtojson');
 const pool = require('./mysql/connection');
-
+const cors = require("cors");
 
 app.set('port', process.env.PORT || 3000);
 app.use(express.json());
@@ -12,8 +12,8 @@ app.use(express.json());
 
 
 // middlewares
+app.use(cors());
 app.use(morgan('dev'));
-
 app.use('', require('./router/iot'))
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());

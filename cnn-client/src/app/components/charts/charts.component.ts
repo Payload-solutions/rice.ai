@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-
+import { HttpClient } from '@angular/common/http';
 import { Chart, registerables } from 'chart.js';
 
 @Component({
@@ -12,12 +12,13 @@ export class ChartsComponent implements OnInit {
 
   public chart: any;
 
-  constructor() {
+  constructor(private http:HttpClient) {
     Chart.register(...registerables);
   }
 
   ngOnInit(): void {
     this.createChart();
+    this.getChartValues();
   }
 
   createChart(){
@@ -63,6 +64,15 @@ export class ChartsComponent implements OnInit {
       }
 
     });
+  }
+
+
+  getChartValues(){
+    this.http.get<any>("http://localhost:3000/iot-values")
+      .subscribe(res =>{
+        console.log(res);
+        
+      })
   }
 
 }
