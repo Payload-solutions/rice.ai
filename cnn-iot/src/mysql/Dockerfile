@@ -7,5 +7,5 @@ ENV MYSQL_USER=root_arturo
 ENV MYSQL_PASSWORD=arturo_root
 ENV MYSQL_HOST=localhost
 
-COPY ./scripts/scripts1.sql /docker-entrypoint-initdb.d/1.sql
+COPY ./scripts/up.sql /docker-entrypoint-initdb.d/1.sql
 EXPOSE 3306

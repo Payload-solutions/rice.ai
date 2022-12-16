@@ -11,7 +11,7 @@ router.get('', async(req, res)=>{
 
 router.get('/iot-values', async(req, res)=>{
     const values = await pool.query("select * from soil_values");
-    console.log(values);
+    res.send(values);
 })
 
 module.exports = router;
