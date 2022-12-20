@@ -28,7 +28,7 @@ export class MainComponent implements OnInit {
     this.lineGenerateChart();
     this.loadMainValues();
     this.loadingConvolution();
-    console.log(this.mainBody);
+    //console.log(this.mainBody);
   }
 
 
@@ -47,7 +47,7 @@ export class MainComponent implements OnInit {
   loadingConvolution(){
     this.http.get<any>(this.convUrl)
       .subscribe(res=>{
-        
+        console.log(res);
         this.convBody= res;
       }, err => {
         console.log(err);
