@@ -4,15 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-tensorflow = "==2.9.2"
 django = "*"
 django-rest-framework = "*"
-pillow = "*"
-pymysql = "*"
-django-cors-headers = "*"
+django-cors-headers = "==3.13.0"
+tensorflow = "==2.9.2"
+pymysql = "==1.0.2"
 django-simple-history = "*"
 mysqlclient = "*"
-django-environ = "*"
+pillow = "*"
 
 [dev-packages]
 

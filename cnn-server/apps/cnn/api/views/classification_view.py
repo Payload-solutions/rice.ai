@@ -1,7 +1,7 @@
 from apps.base.api import GeneralListApiView
 from apps.cnn.api.serializers import (
     ClassificationSerializer,
-    ListeClassificationSerializer,
+    ListClassificationSerializer,
     MainClassificationViewSerializer
     )
 
@@ -16,7 +16,7 @@ from rest_framework.parsers import JSONParser, MultiPartParser
 from rest_framework.response import Response
 
 class ClassificationListApiView(GeneralListApiView):
-    serializer_class = ListeClassificationSerializer
+    serializer_class = ListClassificationSerializer
     fields = ['img_name', 'img']
     
     # def get(self, request, *args, **kwargs):

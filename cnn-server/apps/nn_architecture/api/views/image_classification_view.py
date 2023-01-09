@@ -1,4 +1,3 @@
-
 from apps.base.api import GeneralListApiView
 from rest_framework import (
     generics,
@@ -18,12 +17,13 @@ class ClassificationImageListApiView(GeneralListApiView):
 
 class ClassificationImageCreateApiView(generics.CreateAPIView):
     serializer_class = ListClassificationImagesSerializer
+
     def post(self, request, *args, **kwargs):
         try:
             serializer = self.serializer_class(data=request.data)
             if serializer.is_valid():
                 serializer.save()
-                return Response({"Message":"Content was saved successfully"}, status=status.HTTP_201_CREATED)
+                return Response({"Message": "Content was saved successfully"}, status=status.HTTP_201_CREATED)
         except Exception as e:
             print(str(e))
-            return Response({"Message":f"{str(e)}"}, status=status.HTTP_400_BAD_REQUEST)            
+            return Response({"Message": f"{str(e)}"}, status=status.HTTP_400_BAD_REQUEST)

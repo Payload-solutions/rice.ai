@@ -8,6 +8,6 @@ from apps.nn_architecture.api.views.image_classification_view import (
 
 
 urlpatterns = [
-    path('images', ClassificationImageListApiView.as_view(), name="image_classifiaction"),
-    path('images/create', ClassificationImageCreateApiView.as_view(), name="image_classifiaction_create"),
+    path('images', ClassificationImageListApiView.as_view(), name="image_classification"),
+    path('images/create', ClassificationImageCreateApiView.as_view(), name="image_classification_create"),
 ]
