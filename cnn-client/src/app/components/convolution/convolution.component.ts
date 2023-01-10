@@ -95,9 +95,6 @@ export class ConvolutionComponent implements OnInit {
     formData.append('img', this.file);
     console.log(formData);
 
-    // let headers = new HttpHeaders();
-    // headers = headers.append('Content-Type', 'multipart/form-data; boundary {}');
-    // headers = headers.append('enctype', 'multipart/form-data');
 
     fetch(this.url, {
       method: 'post',
@@ -120,19 +117,5 @@ export class ConvolutionComponent implements OnInit {
       .catch((error) => {
         console.log(error);
       });
-
-    // this.http.post("http://127.0.0.1:8000/cnn/play_cnn", formData, {headers})
-    // .subscribe(res=>{
-    //   console.log(res)
-    // }, err =>{
-    //   console.log(err);
-    // })
-
-    // this.imageService.uploadImage(formData)
-    //   .subscribe(res=>{
-    //     console.log(res)
-    //   }, err =>{
-    //     console.log(err);
-    //   })
   }
 }
