@@ -18,7 +18,7 @@ def recommendation(conv_value_nitrogen, conv_value_loss):
     result = abs(float(conv_value_nitrogen) - float(conv_value_loss))
     # if float(conv_value_nitrogen) <= 60 and float(conv_value_loss) <= 60:
     if result <= 2.0:
-        return "La imagen no corresponde a una imagen de arroz o quizás los pixeles no permiten su aceptación, prueba otra imagen"
+        return "No es una imagen de arroz, prueba con otra"
 
-    return f"La planta se presenta un rango de concentración de nitrtógeno de  {float(conv_value_nitrogen):.2f} %" if float(
-        conv_value_nitrogen) >= 85.00 else f"Coloración amarilla con una deficiencia de {float(abs(97 - float(conv_value_loss))):.2f} %; considerar incluir mayor cantidad de (NO3-N) en el cultivo"
+    return f"presencia de nitrógeno en la imagen  {float(conv_value_nitrogen):.2f} %" if float(
+        conv_value_nitrogen) >= 85.00 else f"Deficiencia de Nitrógeno de {float(abs(97 - float(conv_value_loss))):.2f} %; considerar incluir mayor cantidad de (NO3-N) en el cultivo"

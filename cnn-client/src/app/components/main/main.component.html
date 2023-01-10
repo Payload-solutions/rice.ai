@@ -74,7 +74,34 @@
     </div>
     <div class="container p-4">
       <div class="row">
-        <div class="col-md-4" *ngFor="let conv of convBody">
+        <div class="table-responsive">
+          <table class="table table-sm">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">(+) Nitrógeno</th>
+                <th scope="col">(-) Nitrógeno</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Recomendaciones</th>
+                <th scope="col">imagen</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let conv of convBody">
+              <tr>
+                <th>{{conv.healthy}} %</th>
+                <th>{{conv.sick}} %</th>
+                <th scope="row">{{conv.img_name}}</th>
+                <th scope="row">{{conv.recommendation}}</th>
+                <th> <button class="btn btn-success"> ver imagen</button></th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+          
+
+        <!-- <div class="col-md-4" *ngFor="let conv of convBody">
+          
+
+
           <div class="card text-center">
             <ng-container *ngIf="conv.diff >= 2.0; else badValues">
               <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
@@ -82,8 +109,8 @@
               </div>
               <img class="card-img-top" height="200px" src="http://localhost:8000{{conv.img}}">
               <div class="card-body">
-                <!-- <p>Porcentaje de concentración de Nitrógeno <strong>{{conv.healthy}} %</strong> </p> -->
-                <!-- <p>Porcentaje de ausencia de Nitrgógeno <strong>{{conv.sick}} %</strong></p> -->
+                <p>Porcentaje de concentración de Nitrógeno <strong>{{conv.healthy}} %</strong> </p>
+                <p>Porcentaje de ausencia de Nitrgógeno <strong>{{conv.sick}} %</strong></p>
                 <p>Recomendaciones {{conv.recommendation}}</p>
               </div>
             </ng-container>
@@ -94,13 +121,13 @@
               </div>
               <img class="card-img-top" height="200px" src="http://localhost:8000{{conv.img}}">
               <div class="card-body">
-                <!-- <p>Porcentaje de concentración de Nitrógeno {{conv.healthy}}</p>
-                <p>Porcentaje de ausencia de Nitrgógeno {{conv.sick}}</p> -->
+                <p>Porcentaje de concentración de Nitrógeno {{conv.healthy}}</p>
+                <p>Porcentaje de ausencia de Nitrgógeno {{conv.sick}}</p>
                 <p>Recomendaciones {{conv.recommendation}}</p>
               </div>
             </ng-template>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

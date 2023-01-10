@@ -33,8 +33,8 @@ class ListClassificationSerializer(serializers.ModelSerializer):
         return {
             'img_name': instance.img_name,
             'img': instance.img.url if instance.img != '' else '',
-            #'healthy': float("{0:.2f}".format(float(instance.accuracy_healthy))),
-            #'sick': float("{0:.2f}".format(float(instance.loss_nitrogen))),
+            'healthy': float("{0:.2f}".format(float(instance.accuracy_healthy))),
+            'sick': float("{0:.2f}".format(float(instance.loss_nitrogen))),
             #'diff': prediction_difference(instance.accuracy_healthy, instance.loss_nitrogen),
             "recommendation": recommendation(instance.accuracy_healthy, instance.loss_nitrogen),
         }
