@@ -5,13 +5,7 @@ services:
     container_name: cnn-server
     command: python manage.py runserver 0.0.0.0:8000
     restart: always
-  #   # volumes:
-  #   #   - .:/code
-  #   # depends_on:
-  #   #   - db
     network_mode: "host"
-  #   # networks:
-  #   #   - compose_network
   client:
     build: ./cnn-client
     container_name: client
@@ -19,13 +13,20 @@ services:
       - "conv-server"
     restart: always
     network_mode: "host"
-  #   # networks:
-  #   #   - compose_network
-  iot-server:
-    build: ./cnn-iot
-    container_name: cnn-iot
+  web:
+    build: ./iot-microservice
+    container_name: iot-microservice
+    ports:
+      - "3000:3000"
     restart: always
     network_mode: "host"
+  #   # networks:
+  #   #   - compose_network
+  # iot-server:
+  #   build: ./cnn-iot
+  #   container_name: cnn-iot
+  #   restart: always
+  #   network_mode: "host"
   # servicedb:
   #   image: mysql/mysql-server:latest
   #   container_name: servicesdb
@@ -40,23 +41,18 @@ services:
   #   #   - ./mysql/scripts:/docker-entrypoint-initdb.d
   #   #   # - ./mysql/scripts/riceaiv3.sql:/docker-entrypoint-initdb.d/riceaiv3.sql
   #   network_mode: "host"
-  riceaiv3:
-    image: mysql/mysql-server:latest
-    container_name: riceaiv3
-    build: ./cnn-server/production/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: riceaiv3
-      MYSQL_USER: root_arturo
-      MYSQL_PASSWORD: arturo_root
-    volumes:
-      # - mysql_data:/var/lib/mysql
-      - ./cnn-server/production/mysql/scripts/riceaiv3.sql:/docker-entrypoint-initdb.d/riceaiv3.sql
-    #network_mode: "host"
-    ports: ['9999:3306']
-networks:
-  iot-db:
-    driver: host
+  # riceaiv3:
+  #   image: mysql/mysql-server:latest
+  #   container_name: riceaiv3
+  #   build: ./cnn-server/production/mysql
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #     MYSQL_DATABASE: riceaiv3
+  #     MYSQL_USER: root_arturo
+  #     MYSQL_PASSWORD: arturo_root
+  #   volumes:
+  #     # - mysql_data:/var/lib/mysql
+  #     - ./cnn-server/production/mysql/scripts/riceaiv3.sql:/docker-entrypoint-initdb.d/riceaiv3.sql
+  #   #network_mode: "host"
+  #   ports: ['9999:3306']
 
-volumes:
-  mysql_data:

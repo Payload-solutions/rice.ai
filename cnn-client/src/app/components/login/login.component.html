@@ -17,34 +17,34 @@
                   <p id="titleLogin">Inicia sesión con tu cuenta</p>
 
                   <div class="form-outline mb-4">
+                    <!-- <label id="titleLabelLogin" class="form-label" for="form2Example11">Usuario</label> -->
                     <input type="text" [(ngModel)]="userLogin.username" id="inputUsernam" name="username" class="form-control"
                       placeholder="usuario o correo electrónico" />
-                    <label class="form-label" for="form2Example11">Usuario</label>
+                    
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password" id="inputPassword" [(ngModel)]="userLogin.password" name="password" class="form-control" />
-                    <label class="form-label" for="form2Example22">Contraseña</label>
+                    <!-- <label id="titleLabelLogin" class="form-label" for="form2Example22">Contraseña</label> -->
+                    <input type="password" placeholder="contraseña" id="inputPassword" [(ngModel)]="userLogin.password" name="password" class="form-control" />
+                    <i class="bi bi-eye-slash" id="togglePassword"></i>
                   </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Ingresar</button>
+                    <button id="titleLabelLogin" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Ingresar</button>
                     <a class="text-muted" href="#!">¿Olvidaste contraseña?</a>
                   </div>
 
                   <div class="d-flex align-items-center justify-content-center pb-4">
                     <p id="titleLogin" class="mb-0 me-2">¿No tienes una cuenta?</p>
-                    <button id="titleLogin" type="button" (click)="create()" class="btn btn-outline-danger">Crea una nueva</button>
+                    <button id="titleLogin" type="button" (click)="create()" class="btn btn-outline-success">Crea una nueva</button>
                   </div>
-
                 </form>
-
               </div>
             </div>
             <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
               <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                <h4 class="mb-4">Somos más que una aplicación científica</h4>
-                <p class="small mb-0">Poder medir cómo las imágenes influyen en el desarrollo y prevención de pérdida del cultivo,
+                <h4 id="titleLabelLogin" class="mb-4">Somos más que una aplicación científica</h4>
+                <p id="titleLabelLogin" >Poder medir cómo las imágenes influyen en el desarrollo y prevención de pérdida del cultivo,
                   potenciará la producción del arroz, teniendo que usar menor cantidad de Fertilizantes.
                 </p>
               </div>

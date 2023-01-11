@@ -10,5 +10,5 @@ import { AuthenticationService } from './services/authentication.service';
 })
 export class AppComponent {
   title = 'cnn-client';
-  constructor(public authService:AuthenticationService){}
+  constructor(){}
 }
