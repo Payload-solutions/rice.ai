@@ -2,13 +2,15 @@ FROM golang:1.19.5
 
 RUN mkdir /app
 
-WORKDIR $GOPATH/src/github.com/Payload-solutions/iot-microservice
+WORKDIR $GOPATH/src/github.com/Payload-solutions/
 
 COPY . .
 
-RUN go get -d -v ./...
+RUN git clone https://github.com/Payload-solutions/iot-microservice.git
 
-RUN go install -v ./...
+RUN go get -d -v .
+
+RUN go install -v .
 
 
 # here
