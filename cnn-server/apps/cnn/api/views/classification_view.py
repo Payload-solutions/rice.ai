@@ -19,7 +19,6 @@ from rest_framework.response import Response
 class ClassificationListApiView(GeneralListApiView):
     serializer_class = ListClassificationSerializer
     fields = ['img_name', 'img']
-
     # def get(self, request, *args, **kwargs):
     #     serializer = self.serializer_class.data
     #     return Response({"Content":serializer}, status=status.HTTP_200_OK)

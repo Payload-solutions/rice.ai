@@ -49,7 +49,7 @@ export const phValues:ChartConfiguration | any = {
             label: 'ph',
             data: ph,//[65, 59, 80, 81, 56, 55, 40],
             fill: false,
-            borderColor: 'rgb(75, 192, 192)'
+            borderColor: 'rgb(218,112,214)'
         }]
     },
     options: {

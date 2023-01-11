@@ -25,9 +25,11 @@ class ClassificationSerializer(serializers.ModelSerializer):
 
 
 class ListClassificationSerializer(serializers.ModelSerializer):
+    
+    createdTime = serializers.DateTimeField(format="%d-%m-%Y")
     class Meta:
         model = Classification
-        exclude = ('state', 'created_at', 'modified_at', 'deleted_at')
+        exclude = ('state', 'modified_at', 'deleted_at')
 
     def to_representation(self, instance):
         return {
@@ -35,7 +37,7 @@ class ListClassificationSerializer(serializers.ModelSerializer):
             'img': instance.img.url if instance.img != '' else '',
             'healthy': float("{0:.2f}".format(float(instance.accuracy_healthy))),
             'sick': float("{0:.2f}".format(float(instance.loss_nitrogen))),
-            #'diff': prediction_difference(instance.accuracy_healthy, instance.loss_nitrogen),
+            'created_at':instance.created_at,
             "recommendation": recommendation(instance.accuracy_healthy, instance.loss_nitrogen),
         }
 

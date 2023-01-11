@@ -107,7 +107,7 @@ export class ConvolutionComponent implements OnInit {
           img_name: data.Content.img_name,
           healthy: data.Content.healthy,
           sick: data.Content.sick,
-          recomendation: data.Content.recomendation
+          recommendation: data.Content.recommendation
         }
         this.convolution.push(convBody);
         console.log(convBody);
