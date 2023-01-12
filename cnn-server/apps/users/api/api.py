@@ -22,7 +22,7 @@ def user_api_view(request):
             user_seializers.save()
             return Response({"message":"user created successfully"}, status=status.HTTP_201_CREATED)
 
-        return Response(user_seializers.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"message":"user already exists"}, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(["GET", "PUT", "DELETE"])

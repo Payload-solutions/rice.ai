@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
+import { ModalDismissReasons, NgbDatepickerModule, NgbModal }from '@ng-bootstrap/ng-bootstrap';
 import { Chart, registerables } from 'chart.js';
 import { MainEnvironment, IMain, TrainRecords } from 'src/app/models/environment';
 
@@ -12,7 +12,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
+  closeResult = '';
   public chart: any;
   url = MainEnvironment.apiUrl;
   convUrl = TrainRecords.apiUrl;
@@ -20,7 +20,8 @@ export class MainComponent implements OnInit {
   convBody: any = [];
   userLogged: string | any = "";
 
-  constructor(private http: HttpClient, private authenticationService: AuthenticationService) {
+  constructor(private http: HttpClient, private authenticationService: AuthenticationService,
+    private modalService: NgbModal) {
     Chart.register(...registerables);
   }
 
@@ -30,9 +31,7 @@ export class MainComponent implements OnInit {
     this.loadingConvolution();
     //console.log(this.mainBody);
   }
-
-
-
+  
   loadMainValues(){
     this.http.get<any>(this.url)
       .subscribe(res=>{
@@ -54,53 +53,27 @@ export class MainComponent implements OnInit {
       })
   }
 
+  open(content: any) {
+		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
+			(result) => {
+				//this.closeResult = `Closed with: ${result}`;
+			},
+			(reason) => {
+				//this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+			},
+		);
+	}
 
-
-
-  // lineGenerateChart() {
-  //   //const labels = ['April','May','June','July','August','September','November'];
-  //   const labels: string[] | any = [];
-
-  //   for (var a = [], i = 0; i < 100; ++i) a[i] = i;
-
-  //   // http://stackoverflow.com/questions/962802#962890
-  //   function shuffle(array: number[]) {
-  //     var tmp, current, top = array.length;
-  //     if (top) while (--top) {
-  //       current = Math.floor(Math.random() * (top + 1));
-  //       tmp = array[current];
-  //       array[current] = array[top];
-  //       array[top] = tmp;
-  //     }
-  //     return array;
-  //   }
-
-  //   a = shuffle(a);
-
-
-
-  //   for (let i = 0; i <= 100; i++) {
-  //     labels.push(i.toString());
-  //   }
-  //   this.chart = new Chart("MyChart2", {
-  //     type: 'line', //this denotes tha type of chart
-
-  //     data: {// values on X-Axis
-  //       labels: labels,
-  //       datasets: [{
-  //         label: 'Record of the convolutions',
-  //         data: a,//[65, 59, 80, 81, 56, 55, 40],
-  //         fill: false,
-  //         borderColor: 'rgb(75, 192, 192)',
-  //         tension: 0.1
-  //       }]
-  //     },
-  //     options: {
-  //       aspectRatio: 2.5
-  //     }
-
-  //   });
-  // }
+	private getDismissReason(reason: any): string {
+		if (reason === ModalDismissReasons.ESC) {
+			return 'by pressing ESC';
+		} else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+			return 'by clicking on a backdrop';
+		} else {
+			return `with: ${reason}`;
+		}
+	}
 }
+
 
 

@@ -7,7 +7,6 @@ import { AboutComponent } from './components/about/about.component';
 import { ConvolutionComponent } from './components/convolution/convolution.component';
 import { ChartsComponent } from './components/charts/charts.component';
 import { LineComponent } from './components/line/line.component';
-import { MeasuresComponent } from './components/measures/measures.component';
 import { MainComponent } from './components/main/main.component';
 import { LoginComponent } from './components/login/login.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
@@ -29,7 +28,6 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     ConvolutionComponent,
     ChartsComponent,
     LineComponent,
-    MeasuresComponent,
     MainComponent,
     LoginComponent,
     SignupComponent,

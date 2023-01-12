@@ -1,0 +1,18 @@
+#auxiliarText{
+    font-size: 16px;
+    font-style: unset;
+    font-weight: bold;
+}
+
+#auxiliarValues{
+    font-size: 21px;
+    font-style: unset;
+    font-weight: bold;
+}
+
+
+#cardCustomer{
+    /* margin-left: 90px; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
