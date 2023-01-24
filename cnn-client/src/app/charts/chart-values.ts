@@ -71,10 +71,20 @@ export const ContinuosPhValues:ChartConfiguration | any = {
             fill: false,
             borderColor: 'rgb(218,112,214)'
         }, {
-            label: 'temperature',
+            label: 'temperatura del suelo',
             data: temperature,//[65, 59, 80, 81, 56, 55, 40],
             fill: false,
             borderColor: 'rgb(75, 192, 192)'
+        }, {
+            label: 'temperatura del ambiente',
+            data: temperature,//[65, 59, 80, 81, 56, 55, 40],
+            fill: false,
+            borderColor: 'rgb(5, 192, 170)'
+        }, {
+            label: 'humedad del suelo',
+            data: temperature,//[65, 59, 80, 81, 56, 55, 40],
+            fill: false,
+            borderColor: 'rgb(3, 145, 192)'
         }]
     },
     options: {
