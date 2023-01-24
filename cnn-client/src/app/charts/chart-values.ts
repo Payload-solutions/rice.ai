@@ -8,7 +8,7 @@ let dataFetched = [];
 
 
 
-fetch("http://127.0.0.1:3000/iot-values")
+fetch("http://159.223.205.198:3000/iot-values")
     .then((res) => res.json())
     .then((data) => {
         dataFetched = data;

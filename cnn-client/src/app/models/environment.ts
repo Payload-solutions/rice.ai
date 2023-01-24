@@ -1,12 +1,12 @@
 
 
-const URL = "http://127.0.0.1:8000"
+//const URL = "http://127.0.0.1:8000"
 //const URL = "http://0.0.0.0:8000"
-//const URL = "http://159.223.205.198:8000";
+const URL = "http://159.223.205.198:8000";
 
 
 export const SignupEnvironment = {
-    apiUrl: URL+"http://127.0.0.1:8000/user/user/"
+    apiUrl: URL+"http://159.223.205.198:8000/user/user/"
 }
 
 export const ConvEnvironment = {
@@ -35,11 +35,11 @@ export const TrainRecords = {
 
 export const IotRecors = {
     //apiUrl: "http://159.223.205.198:3000/iot-values"
-    apiUrl: "http://127.0.0.1:3000/iot-values"
+    apiUrl: "http://159.223.205.198:3000/iot-values"
 }
 
 export const RealRecords = {
-    apiUrl: "http://127.0.0.1:3000/last-environ"
+    apiUrl: "http://159.223.205.198:3000/last-environ"
 }
 
 
