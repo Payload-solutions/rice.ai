@@ -59,8 +59,6 @@ export class ConvolutionComponent implements OnInit {
       this.imgUrl = reader.result;
     }
 
-
-
     for (let prop in this.file) {
       console.log(prop);
 
