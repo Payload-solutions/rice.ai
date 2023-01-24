@@ -38,6 +38,10 @@ export const IotRecors = {
     apiUrl: "http://127.0.0.1:3000/iot-values"
 }
 
+export const RealRecords = {
+    apiUrl: "http://127.0.0.1:3000/last-environ"
+}
+
 
 export interface IMain{
     images_stored: number,

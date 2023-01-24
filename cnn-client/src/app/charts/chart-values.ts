@@ -60,36 +60,4 @@ export const phValues:ChartConfiguration | any = {
 }
 
 
-export const ContinuosPhValues:ChartConfiguration | any = {
-    type: 'line', //denotes tha type of chart
 
-    data: {// values on X-Axis
-        labels: idValues,
-        datasets: [{
-            label: 'ph',
-            data: ph,//[65, 59, 80, 81, 56, 55, 40],
-            fill: false,
-            borderColor: 'rgb(218,112,214)'
-        }, {
-            label: 'temperatura del suelo',
-            data: temperature,//[65, 59, 80, 81, 56, 55, 40],
-            fill: false,
-            borderColor: 'rgb(75, 192, 192)'
-        }, {
-            label: 'temperatura del ambiente',
-            data: temperature,//[65, 59, 80, 81, 56, 55, 40],
-            fill: false,
-            borderColor: 'rgb(5, 192, 170)'
-        }, {
-            label: 'humedad del suelo',
-            data: temperature,//[65, 59, 80, 81, 56, 55, 40],
-            fill: false,
-            borderColor: 'rgb(3, 145, 192)'
-        }]
-    },
-    options: {
-        aspectRatio: 2.5,
-        AnimationEffect:false
-    }
-
-}

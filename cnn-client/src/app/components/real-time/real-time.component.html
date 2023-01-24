@@ -1,7 +1,7 @@
 <div id="content-wrapper" class="d-flex flex-column">
     <div id="content">
         <div class="container-fluid">
-            <h1 class="h3 mb-2 text-gray-800">Registros de los sensores</h1>
+            <h1 class="h3 mb-2 text-gray-800">Valors en tiepmo real</h1>
             <p class="mb-4">En esta área encontrarás los valores de las medidas de los datos obtenidos de los sensores
             </p>
             <div class="row">
@@ -17,32 +17,33 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-xl-6 col-lg-6">
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Datos históricos del pH</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="chart-container">
-                                <canvas id="MyChart2">{{ chart2 }}</canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- Donut Chart -->
-                <!-- <div class="col-xl-5 col-lg-5">
-                    <div class="card shadow mb-4">
-
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Presencia de nutrientes</h6>
-                        </div>
-                        <div class="card-body">
-                            <app-line></app-line>
-                            <hr>
-                            Niveles de elementos del suelo
-                        </div>
-                    </div>
-                </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Temperatura del suelo</th>
+                        <th scope="col">Temperatura del ambiente</th>
+                        <th scope="col">pH</th>
+                        <th scope="col">Humedad</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let real of realBody">
+                        <th scope="row">{{real.soil_id}}</th>
+                        <td>{{real.temperature_soil}}</td>
+                        <td>{{real.temperature_environ}}</td>
+                        <td>{{real.ph}}</td>
+                        <td>{{real.humidity}} %</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                
             </div>
         </div>
     </div>
