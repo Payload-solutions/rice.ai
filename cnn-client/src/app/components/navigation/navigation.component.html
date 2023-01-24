@@ -1,42 +1,63 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <div class="container-fluid">
-        <a class="navbar-brand" routerLink="/" routerLinkActive="active"><img src="assets/leaf_mini.png" alt="">Rice ai</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <ng-template #loggedIn>
-              <li class="nav-item">
-                <a class="nav-link" id="navTagValues" routerLink="convolution">Convolución</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="navTagValues" routerLink="measurements">Medidas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="navTagValues" routerLink="list_images">imágenes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="navTagValues" (click)="authService.logOut()">Log out</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="navTagValues">  <strong>{{userLogged}}</strong> </a>
-              </li>
-            </ng-template>
-  
-            <ng-container *ngIf="!authService.isLoggedIn(); else loggedIn">
-              <li class="nav-item">
-                <a class="nav-link" id="navTagValues" routerLink="login">Inicio de sesión</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="navTagValues" routerLink="signup">registro</a>
-              </li>
-            </ng-container>
-          </ul>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/" routerLinkActive="active"><img src="assets/leaf_mini.png" alt="">Rice
+        ai</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <ng-template #loggedIn>
+            <!-- <li class="nav-item">
+              <a class="nav-link" id="navTagValues" routerLink="convolution">Convolución</a>
+            </li> -->
+            <!-- <li class="nav-item">
+              <a class="nav-link" id="navTagValues" routerLink="measurements">Medidas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="navTagValues" routerLink="list_images">imágenes</a>
+            </li> -->
+            <!-- <li class="nav-item">
+              <a class="nav-link" id="navTagValues" routerLink="real-time">medias en tiempo real</a>
+            </li> -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Servicios</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" routerLink="convolution">Convolución</a></li>
+                <li><a class="dropdown-item" routerLink="measurements">Medidas</a></li>
+                <li><a class="dropdown-item" routerLink="list_images">Imágenes</a></li>
+                <li><a class="dropdown-item" routerLink="real-time">Medidas en tiempo real</a></li>
+                <!-- <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li> -->
+              </ul>
+            </li>
+            
+
+            <li class="nav-item me-3 me-lg-1">
+              <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+                <img src="https://mdbootstrap.com/img/new/avatars/1.webp" class="rounded-circle" height="22" alt=""
+                  loading="lazy" />
+                <strong class="d-none d-sm-block ms-1">{{userLogged}}</strong>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="navTagValues" (click)="authService.logOut()">Log out</a>
+            </li>
+
+          </ng-template>
+
+          <ng-container *ngIf="!authService.isLoggedIn(); else loggedIn">
+            <li class="nav-item">
+              <a class="nav-link" id="navTagValues" routerLink="login">Inicio de sesión</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="navTagValues" routerLink="signup">registro</a>
+            </li>
+          </ng-container>
+        </ul>
       </div>
     </div>
-  </nav>
- 
+  </div>
+</nav>

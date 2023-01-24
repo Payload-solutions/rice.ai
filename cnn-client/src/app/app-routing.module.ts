@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Components
 
-import { AboutComponent } from './components/about/about.component';
 import { ConvolutionComponent } from './components/convolution/convolution.component';
 import { ChartsComponent } from './components/charts/charts.component';
 import { MainComponent } from './components/main/main.component';
@@ -11,7 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './services/auth.guard';
 import { SignupComponent } from './components/signup/signup.component';
 import { ListImagesComponent } from './components/list-images/list-images.component';
-
+import { RealTimeComponent } from './components/real-time/real-time.component';
 
 const routes: Routes = [
   /*{
@@ -33,9 +32,6 @@ const routes: Routes = [
     canActivate:[AuthGuard]
   },
   {
-    path:'about',
-    component: AboutComponent
-  },{
     path: 'login',
     component: LoginComponent
   },{
@@ -45,7 +41,10 @@ const routes: Routes = [
     path:'list_images',
     component: ListImagesComponent,
     //canActivate:[AuthGuard]
-  }
+  },{
+    path:'real-time',
+    component:RealTimeComponent,
+  },
 ];
 
 @NgModule({

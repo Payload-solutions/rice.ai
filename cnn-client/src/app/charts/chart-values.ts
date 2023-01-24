@@ -8,7 +8,7 @@ let dataFetched = [];
 
 
 
-fetch("http://159.223.205.198:3000/iot-values")
+fetch("http://127.0.0.1:3000/iot-values")
     .then((res) => res.json())
     .then((data) => {
         dataFetched = data;
@@ -59,3 +59,27 @@ export const phValues:ChartConfiguration | any = {
 
 }
 
+
+export const ContinuosPhValues:ChartConfiguration | any = {
+    type: 'line', //denotes tha type of chart
+
+    data: {// values on X-Axis
+        labels: idValues,
+        datasets: [{
+            label: 'ph',
+            data: ph,//[65, 59, 80, 81, 56, 55, 40],
+            fill: false,
+            borderColor: 'rgb(218,112,214)'
+        }, {
+            label: 'temperature',
+            data: temperature,//[65, 59, 80, 81, 56, 55, 40],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)'
+        }]
+    },
+    options: {
+        aspectRatio: 2.5,
+        AnimationEffect:false
+    }
+
+}
