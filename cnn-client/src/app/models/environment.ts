@@ -1,45 +1,45 @@
 
 
-//const URL = "http://127.0.0.1:8000"
+const URL = "http://127.0.0.1"
 //const URL = "http://0.0.0.0:8000"
-const URL = "http://159.223.205.198:8000";
+//const URL = "http://159.223.205.198:8000";
 
 
 export const SignupEnvironment = {
-    apiUrl: URL+"http://159.223.205.198:8000/user/user/"
+    apiUrl: URL+":8000/user/user/"
 }
 
 export const ConvEnvironment = {
-    apiUrl: URL+"/cnn/play_cnn"
+    apiUrl: URL+":8000/cnn/play_cnn"
 }
 
 export const LoginEnvironment = {
-    apiUrl: URL+""
+    apiUrl: URL+":8000"
 }
 
 
 export const MainEnvironment = {
-    apiUrl: URL+"/cnn/main/"
+    apiUrl: URL+":8000/cnn/main/"
 }
 
 
 export const ListImagesEnvironment = {
-    apiUrl: URL+"/images_class/images"
+    apiUrl: URL+":8000/images_class/images"
 }
 
 
 export const TrainRecords = {
-    apiUrl: URL+"/cnn/cnn/"
+    apiUrl: URL+":8000/cnn/cnn/"
 }
 
 
-export const IotRecors = {
+export const IotRecords = {
     //apiUrl: "http://159.223.205.198:3000/iot-values"
-    apiUrl: "http://159.223.205.198:3000/iot-values"
+    apiUrl: URL+":3000/iot-values"
 }
 
 export const RealRecords = {
-    apiUrl: "http://159.223.205.198:3000/last-environ"
+    apiUrl: URL+":3000/last-environ"
 }
 
 

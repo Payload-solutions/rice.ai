@@ -1,4 +1,6 @@
 import {ChartConfiguration } from "chart.js"
+import { IotRecords } from "../models/environment";
+
 
 let temperature: number[] = [];
 let idValues: number[] = [];
@@ -6,9 +8,9 @@ let ph: number[] = [];
 let dates: string[] = [];
 let dataFetched = [];
 
+let url = IotRecords.apiUrl;
 
-
-fetch("http://159.223.205.198:3000/iot-values")
+fetch(url)
     .then((res) => res.json())
     .then((data) => {
         dataFetched = data;

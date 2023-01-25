@@ -16,7 +16,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ListImagesComponent } from './components/list-images/list-images.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { RealTimeComponent } from './components/real-time/real-time.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -39,7 +39,8 @@ import { RealTimeComponent } from './components/real-time/real-time.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthGuard,{

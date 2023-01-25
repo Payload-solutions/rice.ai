@@ -1,5 +1,8 @@
 import { ChartConfiguration } from "chart.js"
 import { interval } from "rxjs";
+import { RealRecords } from "../models/environment";
+
+
 let humidity: number[] = [];
 let idSoil: number[] = [];
 let ph: number[] = [];
@@ -29,7 +32,7 @@ const loadData = () => {
     //temperatureSoil=[];
     //temperatureEnviron=[];
     //dataFetched=[];
-    fetch("http://159.223.205.198:3000/last-environ")
+    fetch(RealRecords.apiUrl)
         .then((res) => res.json())
         .then((data) => {
             dataFetched = data;
