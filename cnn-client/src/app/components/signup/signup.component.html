@@ -11,28 +11,52 @@
                 <div class="form-row">
                     <div class="form-group col-md-5">
                         <label for="inputNombre">Nombres </label>
-                        <input required type="text" formControlName="name" class="form-control" id="inputNombre" autofocus>
+                        <input required type="text" formControlName="name" class="form-control" id="inputNombre"
+                            autofocus>
                     </div>
                     <div class="form-group col-md-5">
                         <label for="inputLName">Apellidos </label>
-                        <input required type="text" formControlName="last_name" class="form-control" id="inputLName" autofocus>
+                        <input required type="text" formControlName="last_name" class="form-control" id="inputLName"
+                            autofocus>
                     </div>
                     <div class="form-group col-md-5">
                         <label for="inputEmail">Email </label>
-                        <input type="email" required formControlName="email" class="form-control" id="inputEmail" name="email" autofocus>
-                        <span class="error" *ngIf="signupForm.get('email')!.invalid && signupForm.get('email')!.touched">email es requerido</span>
+                        <input type="text" required formControlName="email" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" name="email" autofocus>
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors['required']">El campo email es requerido</div>
+                            <div *ngIf="f.email.errors['email']">debe ser una dirección válida de email</div>
+                        </div>
                     </div>
                     <div class="form-group col-md-5">
                         <label for="inputUsername">usuario </label>
-                        <input required type="text" formControlName="username" class="form-control" id="inputUsername" autofocus>
+                        <input required type="text" formControlName="username" class="form-control" id="inputUsername"
+                            autofocus>
                     </div>
                     <div class="form-group col-md-5">
                         <label for="inputPassword">Contraseña </label>
-                        <input required type="password" formControlName="password" class="form-control" id="inputPassword" autofocus>
+                        <input required [type]="fieldTextType ? 'text' : 'password'" formControlName="password"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                            autofocus />
+                        <!-- <div id="apendix" class="input-group-append">
+
+                            <button class="clickeme">click</button>
+                        </div> -->
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors['required']">Campo contraseña es requerido</div>
+                            <div *ngIf="f.password.errors['minlength']">La contraseña debe ser mínimo de 6 caracteres
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group col-md-5">
                         <label for="inputPassword">Repetir contraseña </label>
-                        <input required type="password" formControlName="password2" class="form-control" id="inputPassword" autofocus>
+                        <input required type="password" formControlName="password2" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" autofocus>
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors['required']">Campo contraseña es requerido</div>
+                            <div *ngIf="f.password.errors['minlength']">La contraseña debe ser mínimo de 6 caracteres
+                            </div>
+                        </div>
                     </div>
                     <!-- <div class="form-group col-md-10">
                         <label for="inputPassword">Confirma contraseña</label>

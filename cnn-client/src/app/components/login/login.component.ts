@@ -29,7 +29,9 @@ export class LoginComponent implements OnInit {
     
     this.authService.signIn(this.userLogin)
       .subscribe(res=>{
-        console.log(res)
+        //console.log(res)
+        console.log(res.status);
+        
         localStorage.setItem("token", res.token)
         localStorage.setItem("user", res.user.name)
         //console.log("this man i know"+localStorage.getItem('token'))
