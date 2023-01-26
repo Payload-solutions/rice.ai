@@ -49,12 +49,14 @@ class Login(ObtainAuthToken):
                             'message': 'login successfully'
                         }, status=status.HTTP_200_OK)
                 else:
+                    print("user inactive")
                     return Response({"message": "This user can't make login"}, status=status.HTTP_401_UNAUTHORIZED)
             else:
+                print("wrong credentials")
                 return Response({"message": "Wrong credentials"}, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
             print(str(e))
-            return Response({"message": "problems in the login"}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response({"message": "problems in the login"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class Logout(APIView):

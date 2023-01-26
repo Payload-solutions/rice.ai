@@ -44,6 +44,7 @@ const routes: Routes = [
   },{
     path:'real-time',
     component:RealTimeComponent,
+    canActivate:[AuthGuard]
   },
 ];
 
