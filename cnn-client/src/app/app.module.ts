@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SignupComponent,
     ListImagesComponent,
     NavigationComponent,
-    RealTimeComponent
+    RealTimeComponent,
   ],
   imports: [
     BrowserModule,

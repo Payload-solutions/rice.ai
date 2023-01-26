@@ -6,20 +6,25 @@
 
 
         <div class="container p-4">
+            <ngb-alert #selfClosingAlert *ngIf="successMessage" type="danger" (closed)="successMessage = ''">
+                <h5 id="messageAlert">
+                    {{ successMessage }}
+                </h5>
+            </ngb-alert>
             <!-- <form (submit)="signUp()"> -->
             <form [formGroup]="signupForm" (submit)="signUp()">
                 <div class="form-row">
-                    <div class="form-group col-md-5">
+                    <div class="form-group col-md-6">
                         <label for="inputNombre">Nombres </label>
                         <input required type="text" formControlName="name" class="form-control" id="inputNombre"
                             autofocus>
                     </div>
-                    <div class="form-group col-md-5">
+                    <div class="form-group col-md-6">
                         <label for="inputLName">Apellidos </label>
                         <input required type="text" formControlName="last_name" class="form-control" id="inputLName"
                             autofocus>
                     </div>
-                    <div class="form-group col-md-5">
+                    <div class="form-group col-md-6">
                         <label for="inputEmail">Email </label>
                         <input type="text" required formControlName="email" class="form-control"
                             [ngClass]="{ 'is-invalid': submitted && f.email.errors }" name="email" autofocus>
@@ -28,12 +33,12 @@
                             <div *ngIf="f.email.errors['email']">debe ser una dirección válida de email</div>
                         </div>
                     </div>
-                    <div class="form-group col-md-5">
+                    <div class="form-group col-md-6">
                         <label for="inputUsername">usuario </label>
                         <input required type="text" formControlName="username" class="form-control" id="inputUsername"
                             autofocus>
                     </div>
-                    <div class="form-group col-md-5">
+                    <div class="form-group col-md-6">
                         <label for="inputPassword">Contraseña </label>
                         <input required [type]="fieldTextType ? 'text' : 'password'" formControlName="password"
                             class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
@@ -48,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group col-md-5">
+                    <div class="form-group col-md-6">
                         <label for="inputPassword">Repetir contraseña </label>
                         <input required type="password" formControlName="password2" class="form-control"
                             [ngClass]="{ 'is-invalid': submitted && f.password.errors }" autofocus>

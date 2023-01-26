@@ -30,21 +30,21 @@
                   <h4 class="mt-1 mb-5 pb-1">Somos El equipo RICEAI</h4>
                 </div>
 
-                <form (submit)="signIn()">
+                <form [formGroup]="loginForm" (submit)="signIn()">
                   <p id="titleLogin">Inicia sesión con tu cuenta</p>
 
                   <div class="form-outline mb-4">
                     <!-- <label id="titleLabelLogin" class="form-label" for="form2Example11">Usuario</label> -->
-                    <input type="text" [(ngModel)]="userLogin.username" id="inputUsernam" name="username"
+                    <input type="text"  id="inputUsername" formControlName="username"
                       class="form-control" placeholder="usuario" />
 
                   </div>
 
                   <div class="form-outline mb-4">
                     <!-- <label id="titleLabelLogin" class="form-label" for="form2Example22">Contraseña</label> -->
-                    <input type="password" placeholder="contraseña" id="inputPassword" [(ngModel)]="userLogin.password"
-                      name="password" class="form-control" />
-                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                    <input type="password" placeholder="contraseña" id="inputPassword" 
+                    formControlName="password" class="form-control" />
+                    <!-- <i class="bi bi-eye-slash" id="togglePassword"></i> -->
                   </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
