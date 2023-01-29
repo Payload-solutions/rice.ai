@@ -25,4 +25,4 @@ def recommendation(conv_value_nitrogen, conv_value_loss):
         return "No es una planta de arroz, prueba con otra"
 
     return f"presencia de nitrógeno en la imagen  {float(conv_value_nitrogen):.2f} %" if float(
-        conv_value_nitrogen) >= 85.00 else f"Deficiencia de Nitrógeno de {float(abs(97 - float(conv_value_loss))):.2f} %; considerar incluir mayor cantidad de (NO3-N) en el cultivo"
+        conv_value_nitrogen) >= 79.00 else f"Deficiencia de Nitrógeno de {float(abs(97 - float(conv_value_loss))):.2f} %; considerar incluir mayor cantidad de (NO3-N) en el cultivo"
