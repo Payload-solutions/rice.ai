@@ -26,15 +26,8 @@ def allowed_files(filename: str):
 
 def create_routes(app: flask.app.Flask) -> None:
     
-    @app.route("/history_values", methods=["GET"])
-    def history_values():
-        return jsonify({
-            "message": "hello test"
-        })
-    
-    
     @app.route("/train", methods=["POST"])
-    @cross_origin(origin='127.0.0.1', headers=['Content- Type',
+    @cross_origin(origin='159.223.205.198', headers=['Content- Type',
         'Authorization'])
     def convolution():
         try:

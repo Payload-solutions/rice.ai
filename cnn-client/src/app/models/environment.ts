@@ -41,6 +41,16 @@ export const RealRecords = {
     apiUrl: URL+":3000/last-environ"
 }
 
+export const RealRecordsLastOne = {
+    apiUrl: URL+":3000/last-one"
+}
+
+
+export const filterConv = {
+    apiUrl: URL+":5000/train"
+}
+
+
 
 export interface IMain{
     images_stored: number,

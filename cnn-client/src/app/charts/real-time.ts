@@ -70,12 +70,12 @@ export const RealTimeValues: ChartConfiguration | any = {
             label: 'temperatura del ambiente',
             data: temperatureEnviron,//[65, 59, 80, 81, 56, 55, 40],
             fill: false,
-            borderColor: 'rgb(5, 192, 170)'
+            borderColor: 'rgb(34,139,34)'
         }, {
             label: 'humedad del suelo',
             data: humidity,//[65, 59, 80, 81, 56, 55, 40],
             fill: false,
-            borderColor: 'rgb(3, 145, 192)'
+            borderColor: 'rgb(139,69,19)'
         }]
     },
     options: {

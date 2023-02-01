@@ -44,6 +44,6 @@ def prediction(x: str):
     
     
     return {
-        "message": "it's a rice" if result[2] >= 0.75 else "it isn't a rice leaf"
+        "message": "YES" if result[2] >= 0.75 else "NO"
     }
     

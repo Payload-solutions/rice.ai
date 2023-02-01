@@ -26,7 +26,7 @@
       </div>
     </div>
   </form>
-  
+
 
   <div *ngIf="file" class="row">
     <div class="col-md-2"></div>
@@ -45,14 +45,34 @@
     <div class="col-md-6" *ngIf="convolution.length>0">
       <ng-template #content let-modal>
         <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">Estado de la red</h4>
+          <h4 class="modal-title" id="modal-basic-title">Resultados</h4>
           <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
         </div>
         <div class="modal-body">
           <form>
             <div class="mb-3">
-              <label for="dateOfBirth">Clasificación</label>
-              <h5>{{convolution[0].recommendation}}</h5>
+              <!-- <label for="dateOfBirth">Resultados</label> -->
+              <!-- <h5>{{convolution[0].recommendation}}</h5> -->
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Procentaje de nitrogeno</th>
+                    <th scope="col">Temperatura del suelo</th>
+                    <th scope="col">Temperatura del ambiente</th>
+                    <th scope="col">pH</th>
+                    <th scope="col">Humedad</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let real of newConvBody">
+                    <td scope="row">{{convolution[0].recommendation}}</td>
+                    <td>{{real.temperature_soil}}</td>
+                    <td>{{real.temperature_environ}}</td>
+                    <td>{{real.ph}}</td>
+                    <td>{{real.humidity}} %</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </form>
         </div>

@@ -6,7 +6,8 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 
 import { IConvolutionBody } from 'src/app/models/IConvolution';
-import { ConvEnvironment } from 'src/app/models/environment';
+import { ConvEnvironment, filterConv, RealRecordsLastOne } from 'src/app/models/environment';
+import { HttpClient } from '@angular/common/http';
 //import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @Component({
@@ -18,13 +19,15 @@ export class ConvolutionComponent implements OnInit {
   closeResult = '';
   file: any;
   imgUrl: any;
-
+  lastOne = RealRecordsLastOne.apiUrl;
 
   url = ConvEnvironment.apiUrl;
+  filterUrl = filterConv.apiUrl;
 
   convolution: IConvolutionBody[] = [];
+  newConvBody: any = [];
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private http: HttpClient) { }
 
   ngOnInit(): void { }
 
@@ -71,7 +74,7 @@ export class ConvolutionComponent implements OnInit {
     function move() {
       if (i == 0) {
         i = 1;
-        var elem:any = document.getElementById("myBar");
+        var elem: any = document.getElementById("myBar");
         var width = 1;
         var id = setInterval(frame, 10);
         function frame() {
@@ -94,26 +97,51 @@ export class ConvolutionComponent implements OnInit {
     console.log(formData);
 
 
-    fetch("http://127.0.0.1:5000/train", {
+    fetch(this.filterUrl, {
       method: 'post',
       body: formData,
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
-        const convBody: IConvolutionBody = {
-          img_name: data.Content.img_name,
-          healthy: data.Content.healthy,
-          sick: data.Content.sick,
-          recommendation: data.Content.recommendation
-        }
-        this.convolution.push(convBody);
-        console.log(convBody);
-        
 
+        if (data['message'] == "YES") {
+          fetch(this.url, {
+            method: 'post',
+            body: formData,
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              const convBody: IConvolutionBody = {
+                img_name: data.Content.img_name,
+                healthy: data.Content.healthy,
+                sick: data.Content.sick,
+                recommendation: data.Content.recommendation
+              }
+              this.convolution.push(convBody);
+              console.log(convBody);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+
+          this.http.get<any>(this.lastOne)
+            .subscribe(res => {
+              this.newConvBody = res;
+            }, err => {
+              console.log(err);
+            })
+
+
+
+        } else {
+          alert("No es una planta de arroz");
+        }
       })
       .catch((error) => {
         console.log(error);
       });
+
+
+
   }
 }

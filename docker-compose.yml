@@ -13,6 +13,12 @@ services:
       - "conv-server"
     restart: always
     network_mode: "host"
+  cnn-rice-detection:
+    build: ./cnn-rice-detection
+    container_name: cnn-rice-detection
+    # command: python manage.py runserver 0.0.0.0:8000
+    restart: always
+    network_mode: "host"
   # web:
   #   build: ./iot-microservice
   #   container_name: iot-microservice
