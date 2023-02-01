@@ -53,8 +53,8 @@ class Classification(BaseModel):
 
     def save(self, *args, **kwargs):
         K.reset_uids()
-        model = "apps/cnn/models/testing2.json"
-        weights = "apps/cnn/models/testing2.hdf5"
+        model = "apps/cnn/models/riceai_json_model_2.json"
+        weights = "apps/cnn/models/final_model_2.hdf5"
 
         with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
             with open(model, 'r') as f:
