@@ -29,7 +29,7 @@ DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'riceaiv3',
+        'NAME': 'riceaidb',
         'USER': 'root_arturo',
         'PASSWORD': 'arturo_root',
         #'HOST':'0.0.0.0',

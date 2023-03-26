@@ -16,3 +16,9 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.my-table-header {
+    background-color: #f8f8f8;
+    font-weight: bold;
+    text-transform: uppercase;
+  }

@@ -17,7 +17,7 @@ import { ListImagesComponent } from './components/list-images/list-images.compon
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { RealTimeComponent } from './components/real-time/real-time.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 
@@ -41,7 +41,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxDatatableModule
   ],
   providers: [
     AuthGuard,{

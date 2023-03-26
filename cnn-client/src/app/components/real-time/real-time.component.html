@@ -27,19 +27,19 @@
                     <thead class="thead-dark">
                       <tr>
                         <th scope="col">id</th>
-                        <th scope="col">Temperatura del suelo</th>
-                        <th scope="col">Temperatura del ambiente</th>
+                        <th scope="col">Humedad del suelo</th>
+                        <th scope="col">Humedad del ambiente</th>
                         <th scope="col">pH</th>
-                        <th scope="col">Humedad</th>
+                        <th scope="col">Tempeatura</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr *ngFor="let real of realBody">
                         <th scope="row">{{real.soil_id}}</th>
-                        <td>{{real.temperature_soil}}</td>
-                        <td>{{real.temperature_environ}}</td>
+                        <td>{{real.humidity_soil}}</td>
+                        <td>{{real.humidity_environ}}</td>
                         <td>{{real.ph}}</td>
-                        <td>{{real.humidity}} %</td>
+                        <td>{{real.temperature}} %</td>
                       </tr>
                     </tbody>
                   </table>

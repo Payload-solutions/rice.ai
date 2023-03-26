@@ -3,12 +3,12 @@ import { interval } from "rxjs";
 import { RealRecords } from "../models/environment";
 
 
-let humidity: number[] = [];
+let temperature: number[] = [];
 let idSoil: number[] = [];
 let ph: number[] = [];
 let dates: string[] = [];
-let temperatureSoil: number[] = [];
-let temperatureEnviron: number[] = [];
+let humiditySoil: number[] = [];
+let humidityEnviron: number[] = [];
 let dataFetched = [];
 
 
@@ -39,9 +39,9 @@ const loadData = () => {
             dataFetched.forEach((element: any) => {
                 ph.push(element.ph);
                 idSoil.push(element.soil_id);
-                temperatureSoil.push(element.temperature_soil);
-                temperatureEnviron.push(element.temperature_environ);
-                humidity.push(element.humidity);
+                humiditySoil.push(element.humidity_soil);
+                humidityEnviron.push(element.temperature_environ);
+                temperature.push(element.temperature);
                 dates.push(element.soil_dates);
             });
         });
@@ -62,18 +62,18 @@ export const RealTimeValues: ChartConfiguration | any = {
             fill: false,
             borderColor: 'rgb(218,112,214)'
         }, {
-            label: 'temperatura del suelo',
-            data: temperatureSoil,//[65, 59, 80, 81, 56, 55, 40],
+            label: 'humedad del suelo',
+            data: humiditySoil,//[65, 59, 80, 81, 56, 55, 40],
             fill: false,
             borderColor: 'rgb(75, 192, 192)'
         }, {
-            label: 'temperatura del ambiente',
-            data: temperatureEnviron,//[65, 59, 80, 81, 56, 55, 40],
+            label: 'humedad del ambiente',
+            data: humidityEnviron,//[65, 59, 80, 81, 56, 55, 40],
             fill: false,
             borderColor: 'rgb(34,139,34)'
         }, {
-            label: 'humedad del suelo',
-            data: humidity,//[65, 59, 80, 81, 56, 55, 40],
+            label: 'temperatura del suelo',
+            data: temperature,//[65, 59, 80, 81, 56, 55, 40],
             fill: false,
             borderColor: 'rgb(139,69,19)'
         }]

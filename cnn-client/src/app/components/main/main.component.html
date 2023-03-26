@@ -70,7 +70,7 @@
         </div>
       </div>
 
-    </div><!-- End Customers Card -->
+    </div>
     <div class="col-xxl-11 col-xl-11">
       <div class="table-responsive">
         <table id="tableResults" class="table" cellspacing="20" width="10%">
@@ -98,13 +98,13 @@
                     <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
                       {{conv.img_name}}
                     </div>
-                    <img class="card-img-top" height="220px" width="100px" src="http://159.223.205.198:8000{{conv.img}}">
-                </div>
+                    <img class="card-img-top" height="220px" width="100px" src="http://127.0.0.1:8000{{conv.img}}">
+                  </div>
                 </div>
               </ng-template>
 
-              
-            
+
+
               <td>{{conv.created_at | date:'medium'}}</td>
               <td>{{conv.healthy}} %</td>
               <td>{{conv.sick}} %</td>
@@ -113,10 +113,26 @@
             </tr>
           </tbody>
         </table>
-
-
-
       </div>
     </div>
+
+    <!-- <ngx-datatable class="bootstrap" #table [rows]="rows$ | async" [columns]="columns" [headerHeight]="50"
+      [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [selectionType]="selectionType" [scrollbarH]="true">
+      <ngx-datatable-column name="Nombre" prop="img_name"></ngx-datatable-column>
+      <ngx-datatable-column name="Imagen" prop="img">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <img src="http://127.0.0.1:8000{{row.img}}" alt="{{row.img_name}}" width="70">
+          
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Sano" prop="healthy"> <ng-template let-row="row">
+        {{row.healthy}}%
+      </ng-template></ngx-datatable-column>
+      <ngx-datatable-column name="Enfermo" prop="sick"></ngx-datatable-column>
+      <ngx-datatable-column name="Fecha" prop="created_at"></ngx-datatable-column>
+      <ngx-datatable-column name="Recomendación" prop="recommendation"></ngx-datatable-column>
+    </ngx-datatable> -->
+
+
   </div>
 </div>
