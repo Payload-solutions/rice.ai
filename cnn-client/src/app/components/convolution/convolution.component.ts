@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   ModalDismissReasons,
   NgbDatepickerModule,
   NgbModal,
 } from '@ng-bootstrap/ng-bootstrap';
-
+import { Subject } from 'rxjs';
 import { IConvolutionBody } from 'src/app/models/IConvolution';
 import { ConvEnvironment, filterConv, RealRecordsLastOne } from 'src/app/models/environment';
 import { HttpClient } from '@angular/common/http';
+import { NgbAlert, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { debounceTime } from 'rxjs/operators';
 //import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @Component({
@@ -16,7 +18,16 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./convolution.component.css'],
 })
 export class ConvolutionComponent implements OnInit {
+
+
+  // alert section
+  private _success = new Subject<string>();
+  @ViewChild('staticAlert', { static: false }) staticAlert: NgbAlert | any;
+  @ViewChild('selfClosingAlert', { static: false }) selfClosingAlert: NgbAlert | any;
+
+
   closeResult = '';
+  successMessage = '';
   file: any;
   imgUrl: any;
   lastOne = RealRecordsLastOne.apiUrl;
@@ -29,7 +40,20 @@ export class ConvolutionComponent implements OnInit {
 
   constructor(private modalService: NgbModal, private http: HttpClient) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+
+    setTimeout(() => this.staticAlert.close(), 20000);
+    this._success.subscribe((message) => (this.successMessage = message));
+		this._success.pipe(debounceTime(5000)).subscribe(() => {
+			if (this.selfClosingAlert) {
+				this.selfClosingAlert.close();
+			}
+		});
+   }
+
+   public changeSuccessMessage() {
+		this._success.next(`${new Date()} - Credenciales incorrectas.`);
+	}
 
   open(content: any) {
     this.modalService
@@ -61,11 +85,6 @@ export class ConvolutionComponent implements OnInit {
     reader.onload = (_event) => {
       this.imgUrl = reader.result;
     }
-
-    for (let prop in this.file) {
-      console.log(prop);
-
-    }
   }
 
   uploadImage(event: Event) {
@@ -94,7 +113,6 @@ export class ConvolutionComponent implements OnInit {
     const formData = new FormData();
     formData.append('img_name', 'dick_tag');
     formData.append('img', this.file);
-    console.log(formData);
 
 
     fetch(this.filterUrl, {
@@ -118,7 +136,6 @@ export class ConvolutionComponent implements OnInit {
                 recommendation: data.Content.recommendation
               }
               this.convolution.push(convBody);
-              console.log(convBody);
             })
             .catch((error) => {
               console.log(error);
@@ -134,7 +151,7 @@ export class ConvolutionComponent implements OnInit {
 
 
         } else {
-          alert("No es una planta de arroz");
+          this._success.next(`no es una planta de arroz.`);
         }
       })
       .catch((error) => {

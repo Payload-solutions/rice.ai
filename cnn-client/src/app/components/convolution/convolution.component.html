@@ -1,3 +1,10 @@
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type="danger" (closed)="successMessage = ''"
+	><h5 id="messageAlert">
+    {{ successMessage }}
+  </h5>
+</ngb-alert>
+
+
 <div>
   <form (submit)="uploadImage($event)">
     <div id="card-distance" class="row">

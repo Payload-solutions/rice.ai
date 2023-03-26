@@ -4,9 +4,7 @@ from django.db import models
 from apps.base.models import BaseModel
 from simple_history.models import HistoricalRecords
 
-import tensorflow as tf
 from tensorflow.python.keras.models import (
-    load_model,
     model_from_json
 )
 from tensorflow.python.keras.initializers import glorot_uniform
@@ -17,7 +15,6 @@ from tensorflow.keras.preprocessing.image import (
     img_to_array,
     array_to_img
 )
-from tensorflow.keras.applications import imagenet_utils
 from PIL import Image
 
 
@@ -33,29 +30,12 @@ class Classification(BaseModel):
         verbose_name = "Classification"
         verbose_name_plural = "Classifications"
 
-    def predict(self):
-        K.reset_uids()
-        model = "apps/cnn/models/riceai_json_model_2.json"
-        weights = "apps/cnn/models/final_model_2.hdf5"
-
-        with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
-            with open(model, 'r') as f:
-                model = model_from_json(f.read())
-                model.load_weights(weights)
-
-        image = Image.open(self.img)
-        img = img_to_array(load_img(self.img, target_size=(224, 224))) / 255.0
-        img = img.reshape(1, 224, 224, 3)
-
-        result = model.predict(img)
-
-        return result[0][0], result[0][1]
-
     def save(self, *args, **kwargs):
         K.reset_uids()
-        model = "apps/cnn/models/riceai_json_model_2.json"
-        weights = "apps/cnn/models/final_model_2.hdf5"
-
+        # model = "apps/cnn/models/riceai_json_model_2.json"
+        # weights = "apps/cnn/models/final_model_2.hdf5"
+        model = "apps/cnn/models/riceaiv3.json"
+        weights = "apps/cnn/models/riceaiv3.hdf5"
         with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
             with open(model, 'r') as f:
                 model = model_from_json(f.read())
