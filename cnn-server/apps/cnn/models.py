@@ -34,8 +34,8 @@ class Classification(BaseModel):
         K.reset_uids()
         # model = "apps/cnn/models/riceai_json_model_2.json"
         # weights = "apps/cnn/models/final_model_2.hdf5"
-        model = "apps/cnn/models/riceaiv3.json"
-        weights = "apps/cnn/models/riceaiv3.hdf5"
+        model = "apps/cnn/models/final.2.json"
+        weights = "apps/cnn/models/final.2.hdf5"
         with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
             with open(model, 'r') as f:
                 model = model_from_json(f.read())
