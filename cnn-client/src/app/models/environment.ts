@@ -1,7 +1,7 @@
 
 
-const URL = "http://127.0.0.1"
-//const URL = "http://165.22.1.10";
+//const URL = "http://127.0.0.1"
+const URL = "http://165.22.1.10";
 
 
 export const SignupEnvironment = {

@@ -47,7 +47,7 @@ export class MainComponent implements OnInit {
   }
 
   getRows(): Observable<any[]> {
-    return this.http.get<any[]>('http://127.0.0.1:8000/cnn/cnn/');
+    return this.http.get<any[]>('http://165.22.1.10:8000/cnn/cnn/');
   }
 
   loadMainValues() {
